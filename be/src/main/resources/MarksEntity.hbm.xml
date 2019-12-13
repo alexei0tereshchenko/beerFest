@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="study.beerFest.dao.MarksEntity" table="Marks" schema="beerFest">
+        <id name="date">
+            <column name="Date" sql-type="datetime"/>
+        </id>
+        <property name="mark">
+            <column name="Mark" sql-type="int(2)"/>
+        </property>
+        <property name="comment">
+            <column name="Comment" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <many-to-one name="tastersByIdTaster" class="study.beerFest.dao.TastersEntity">
+            <column name="idTaster"/>
+        </many-to-one>
+        <many-to-one name="beerByIdBeer" class="study.beerFest.dao.BeerEntity">
+            <column name="idBeer"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

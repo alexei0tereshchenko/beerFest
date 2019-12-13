@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="study.beerFest.dao.BreweryEntity" table="Brewery" schema="beerFest">
+        <id name="idBrewery">
+            <column name="idBrewery" sql-type="int(11)"/>
+        </id>
+        <property name="breweryName">
+            <column name="BreweryName" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="address">
+            <column name="Address" sql-type="varchar(45)" length="45"/>
+        </property>
+        <many-to-one name="cityByIdCity" class="study.beerFest.dao.CityEntity">
+            <column name="idCity"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

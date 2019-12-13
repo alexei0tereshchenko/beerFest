@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="study.beerFest.dao.TastersEntity" table="Tasters" schema="beerFest">
+        <id name="idTasters">
+            <column name="idTasters" sql-type="int(11)"/>
+        </id>
+        <property name="firstName">
+            <column name="FirstName" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="lastName">
+            <column name="LastName" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="fullName">
+            <column name="FullName" sql-type="varchar(45)" length="45" not-null="true"/>
+        </property>
+        <property name="phoneNumber">
+            <column name="PhoneNumber" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="birthDate">
+            <column name="BirthDate" sql-type="datetime"/>
+        </property>
+        <many-to-one name="groupByIdGroup" class="study.beerFest.dao.GroupEntity">
+            <column name="idGroup" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/beerFest</property>
+    <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">I'm sorry</property>
+    <mapping resource="BeerEntity.hbm.xml"/>
+    <mapping class="study.beerFest.dao.BeerEntity"/>
+    <mapping resource="BeerStyleEntity.hbm.xml"/>
+    <mapping class="study.beerFest.dao.BeerStyleEntity"/>
+    <mapping resource="BreweryEntity.hbm.xml"/>
+    <mapping class="study.beerFest.dao.BreweryEntity"/>
+    <mapping resource="CityEntity.hbm.xml"/>
+    <mapping class="study.beerFest.dao.CityEntity"/>
+    <mapping resource="CountryEntity.hbm.xml"/>
+    <mapping class="study.beerFest.dao.CountryEntity"/>
+    <mapping resource="GroupEntity.hbm.xml"/>
+    <mapping class="study.beerFest.dao.GroupEntity"/>
+    <mapping resource="MarksEntity.hbm.xml"/>
+    <mapping class="study.beerFest.dao.MarksEntity"/>
+    <mapping resource="TastersEntity.hbm.xml"/>
+    <mapping class="study.beerFest.dao.TastersEntity"/>
+
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

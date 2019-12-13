@@ -1,0 +1,33 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Country Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let country of countries">
+      <td>{{country.idCountry}}</td>
+      <td>{{country.countryName}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!--<form [formGroup]="form" (submit)="OnButtonClick()">
+  <input formControlName="fromNumber" placeholder="от">
+  <input formControlName="toNumber" placeholder="до">
+  <input formControlName="countOfNumbers" placeholder="кол-во">
+  <input formControlName="multiNumber" placeholder="множитель">
+  <input id="submit" type="submit" value="Submit">
+</form>
+
+<div>
+  <p>Числа: </p>
+  <p *ngFor="let number of filteredNumbers">{{number}} </p>
+  <p>Кол-во чисел, не попавших в диапазон: {{missCount}}</p>
+</div>-->
+
+<!--
+<h2 *ngFor="let country of countries">{{country.countryName}}</h2>
+-->
