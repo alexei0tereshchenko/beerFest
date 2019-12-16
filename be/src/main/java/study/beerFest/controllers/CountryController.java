@@ -5,12 +5,14 @@ import org.springframework.web.bind.annotation.*;
 import study.beerFest.dao.CountryEntity;
 import study.beerFest.utils.HibernateSessionFactory;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class CountryController {
 
+    @Transactional(value = Transactional.TxType.REQUIRES_NEW)
     @RequestMapping(value = "/getCountries", method = RequestMethod.GET)
     public List<CountryEntity> getCountries() {
         List<CountryEntity> countryEntities = new ArrayList<>();

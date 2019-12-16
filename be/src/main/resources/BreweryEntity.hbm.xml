@@ -14,7 +14,7 @@
         <property name="address">
             <column name="Address" sql-type="varchar(45)" length="45"/>
         </property>
-        <many-to-one name="cityByIdCity" class="study.beerFest.dao.CityEntity">
+        <many-to-one name="city" class="study.beerFest.dao.CityEntity">
             <column name="idCity"/>
         </many-to-one>
     </class>

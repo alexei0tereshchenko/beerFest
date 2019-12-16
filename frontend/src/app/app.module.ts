@@ -2,26 +2,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {CountryComponent} from './components/country/country.component';
+import {CountriesComponent} from './components/country/countries.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NavigationComponent} from './components/navigation/navigation.component';
+import {BreweriesComponent} from "./components/breweries/breweries.component";
+import {RouterModule} from "@angular/router";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    CountryComponent,
-    NavigationComponent
+    CountriesComponent,
+    NavigationComponent,
+    BreweriesComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule,
+    AppRoutingModule
   ],
   exports: [
-    CountryComponent,
-    NavigationComponent
+    CountriesComponent,
+    NavigationComponent,
+    BreweriesComponent
   ],
   providers: [
   ],

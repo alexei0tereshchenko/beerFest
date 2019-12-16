@@ -9,7 +9,7 @@ public class BreweryEntity {
     private int idBrewery;
     private String breweryName;
     private String address;
-    private CityEntity cityByIdCity;
+    private CityEntity city;
 
     @Id
     @Column(name = "idBrewery", nullable = false)
@@ -58,11 +58,11 @@ public class BreweryEntity {
 
     @ManyToOne
     @JoinColumn(name = "idCity", referencedColumnName = "idCity", nullable = false)
-    public CityEntity getCityByIdCity() {
-        return cityByIdCity;
+    public CityEntity getCity() {
+        return city;
     }
 
-    public void setCityByIdCity(CityEntity cityByIdCity) {
-        this.cityByIdCity = cityByIdCity;
+    public void setCity(CityEntity city) {
+        this.city = city;
     }
 }

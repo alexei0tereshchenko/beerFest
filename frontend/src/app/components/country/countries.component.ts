@@ -5,9 +5,9 @@ import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'country',
-  templateUrl: 'country.component.html'
+  templateUrl: 'countries.component.html'
 })
-export class CountryComponent implements OnInit, OnDestroy {
+export class CountriesComponent implements OnInit, OnDestroy {
   title = 'Countries';
 
   countries: Country[];
