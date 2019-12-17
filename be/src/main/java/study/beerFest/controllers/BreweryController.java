@@ -23,6 +23,7 @@ public class BreweryController {
             BreweryEntity breweryEntity = session.get(BreweryEntity.class, i);
             breweryEntities.add(breweryEntity);
         }
+        session.close();
         return breweryEntities;
     }
 }

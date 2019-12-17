@@ -12,6 +12,9 @@ export class CountriesComponent implements OnInit, OnDestroy {
 
   countries: Country[];
 
+  //formAddCountry: FormGroup;
+  newCountryName: string;
+  newCountry: Country;
 
   constructor(private countryService: CountryService) {
   }
@@ -26,6 +29,15 @@ export class CountriesComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
   }
 
+  onSubmitAddCountry(): void{
+    this.newCountry = new Country(this.newCountryName);
+    this.countryService.addNewCountry(this.newCountry).subscribe((country) =>{
+      this.countries.push(country);
+      this.newCountryName = null;
+      this.newCountry = null;
+      window.location.reload();
+    });
+  }
   /*OnButtonClick(): void {
     this.count = this.form.get('countOfNumbers').value;
     this.input = new Input(this.form.get('countOfNumbers').value,

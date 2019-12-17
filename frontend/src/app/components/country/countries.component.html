@@ -1,19 +1,46 @@
-<table class="table table-hover">
-  <thead>
+<div class="container">
+  <table class="table table-hover">
+    <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Country Name</th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <tr *ngFor="let country of countries">
       <td>{{country.idCountry}}</td>
       <td>{{country.countryName}}</td>
     </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+  <!-- Button trigger modal -->
+  <button id="addCountryBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCountryModal">
+    Add Country
+  </button>
+</div>
 
-
+<!-- Modal -->
+<div class="modal fade" id="addCountryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog=centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Country</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="countryNameInput" class="col-form-label">Country Name:</label>
+        <textarea class="form-control" id="countryNameInput" [(ngModel)]="newCountryName">{{null}}</textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmitAddCountry()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!--<form [formGroup]="form" (submit)="OnButtonClick()">
   <input formControlName="fromNumber" placeholder="от">
   <input formControlName="toNumber" placeholder="до">
@@ -28,6 +55,5 @@
   <p>Кол-во чисел, не попавших в диапазон: {{missCount}}</p>
 </div>-->
 
-<!--
-<h2 *ngFor="let country of countries">{{country.countryName}}</h2>
--->
+
+<!--[formGroup]="formAddCountry" (submit)="onSubmitAddCountry()" -->

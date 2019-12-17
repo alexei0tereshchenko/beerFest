@@ -21,7 +21,17 @@ public class CountryController {
         for (var i = 1; session.get(CountryEntity.class, i) != null; i++) {
             countryEntities.add(session.get(CountryEntity.class, i));
         }
+        session.close();
         return countryEntities;
     }
 
+    @RequestMapping(value = "/addNewCountry", method = RequestMethod.POST)
+    public CountryEntity addNewCountry(@RequestBody CountryEntity country) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.persist(country);
+        session.flush();
+        session.close();
+        return country;
+    }
 }

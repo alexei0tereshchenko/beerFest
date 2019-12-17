@@ -9,6 +9,14 @@ public class CountryEntity {
     private int idCountry;
     private String countryName;
 
+    public CountryEntity() {
+    }
+
+    public CountryEntity(String countryName) {
+        CountryEntity countryEntity = new CountryEntity();
+        countryEntity.setCountryName(countryName);
+    }
+
     @Id
     @Column(name = "idCountry", nullable = false)
     public int getIdCountry() {
