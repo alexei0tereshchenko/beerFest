@@ -1,0 +1,20 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Brewery Name</th>
+      <th scope="col">Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let brewery of breweries">
+      <td>{{brewery.breweryName}}</td>
+      <td>{{brewery.address}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <!-- Button trigger modal -->
+  <button id="addBreweryBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBreweryModal">
+    Add Brewery
+  </button>
+</div>

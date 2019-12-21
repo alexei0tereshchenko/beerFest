@@ -17,4 +17,8 @@ export class CityService {
   addNewCity(city: City): Observable<City>{
     return this.httpService.post<City>('http://localhost:8080/addCity', city);
   }
+
+  getCity(idCity: number): Observable<City>{
+    return this.httpService.get<City>('http://localhost:8080/city/'+ idCity);
+  }
 }

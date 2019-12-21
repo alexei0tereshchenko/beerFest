@@ -29,4 +29,12 @@ public class CityController {
         session.close();
         return cityEntity;
     }
+
+    @Transactional
+    @RequestMapping(value = "/city/{idCity}", method = RequestMethod.GET)
+    public CityEntity getCity(@PathVariable(value = "idCity") int idCity){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        return session.get(CityEntity.class, idCity);
+    }
 }

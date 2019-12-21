@@ -1,7 +1,6 @@
 <table class="table table-hover">
   <thead>
   <tr>
-    <th scope="col">#</th>
     <th scope="col">Brewery Name</th>
     <th scope="col">City</th>
     <th scope="col">Address</th>
@@ -9,7 +8,6 @@
   </thead>
   <tbody>
   <tr *ngFor="let brewery of breweries">
-    <td>{{brewery.idBrewery}}</td>
     <td>{{brewery.breweryName}}</td>
     <td>{{brewery.city.cityName}}</td>
     <td>{{brewery.address}}</td>

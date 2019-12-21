@@ -7,12 +7,15 @@ import {Brewery} from "../models/brewery.model";
   providedIn: "root"
 })
 export class BreweryService {
-  constructor(private httpService: HttpClient){
+  constructor(private httpService: HttpClient) {
   }
-  
+
   getAllBreweries(): Observable<Brewery[]> {
     return this.httpService.get<Brewery[]>('http://localhost:8080/getBreweries');
   }
-  
+
+  getBreweriesByCity(idCity: number): Observable<Brewery[]> {
+    return this.httpService.get<Brewery[]>('http://localhost:8080/breweries/' + idCity)
+  }
 }
   
