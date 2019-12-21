@@ -12,6 +12,8 @@ import {AppRoutingModule} from "./app-routing.module";
 import {CitiesComponent} from "./components/cities/cities.component";
 import {BreweriesByCityComponent} from "./components/breweriesByCity/breweriesByCity.component";
 import {BeerComponent} from "./components/beer/beer.component";
+import {BeerStylesComponent} from "./components/beerStyles/beerStyles.component";
+import {GroupsComponent} from "./components/groups/groups.component";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {BeerComponent} from "./components/beer/beer.component";
     BreweriesComponent,
     CitiesComponent,
     BreweriesByCityComponent,
-    BeerComponent
+    BeerComponent,
+    BeerStylesComponent,
+    GroupsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ import {BeerComponent} from "./components/beer/beer.component";
     BreweriesComponent,
     CitiesComponent,
     BreweriesByCityComponent,
-    BeerComponent
+    BeerComponent,
+    BeerStylesComponent,
+    GroupsComponent
   ],
   providers: [
   ],

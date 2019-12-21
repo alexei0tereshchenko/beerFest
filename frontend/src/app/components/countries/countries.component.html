@@ -3,18 +3,21 @@
     <thead>
     <tr>
       <th scope="col">Country Name</th>
+      <th>
+        <button id="addCountryBtn" type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#addCountryModal">
+          Add Country
+        </button>
+      </th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let country of countries">
       <td><a href="/country/{{country.idCountry}}">{{country.countryName}}</a></td>
+      <td></td>
     </tr>
     </tbody>
   </table>
-  <!-- Button trigger modal -->
-  <button id="addCountryBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCountryModal">
-    Add Country
-  </button>
 </div>
 
 <!-- Modal -->

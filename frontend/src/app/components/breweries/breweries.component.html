@@ -8,8 +8,8 @@
   </thead>
   <tbody>
   <tr *ngFor="let brewery of breweries">
-    <td>{{brewery.breweryName}}</td>
-    <td>{{brewery.city.cityName}}</td>
+    <td><a href="/brewery/{{brewery.idBrewery}}">{{brewery.breweryName}}</a></td>
+    <td><a href="/city/{{brewery.city.idCity}}">{{brewery.city.cityName}}</a></td>
     <td>{{brewery.address}}</td>
   </tr>
   </tbody>

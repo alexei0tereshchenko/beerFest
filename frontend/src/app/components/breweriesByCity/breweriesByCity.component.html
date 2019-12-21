@@ -4,17 +4,20 @@
     <tr>
       <th scope="col">Brewery Name</th>
       <th scope="col">Address</th>
+      <th>
+        <button id="addBreweryBtn" type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#addBreweryModal">
+          Add Brewery
+        </button>
+      </th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let brewery of breweries">
       <td><a href="/brewery/{{brewery.idBrewery}}">{{brewery.breweryName}}</a></td>
       <td>{{brewery.address}}</td>
+      <td></td>
     </tr>
     </tbody>
   </table>
-  <!-- Button trigger modal -->
-  <button id="addBreweryBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBreweryModal">
-    Add Brewery
-  </button>
 </div>

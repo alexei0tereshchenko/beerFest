@@ -3,18 +3,20 @@
     <thead>
     <tr>
       <th scope="col">City Name</th>
+      <th>
+        <button id="addCityBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCityModal">
+          Add City
+        </button>
+      </th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let city of cities">
       <td><a href="/city/{{city.idCity}}">{{city.cityName}}</a></td>
+      <td></td>
     </tr>
     </tbody>
   </table>
-  <!-- Button trigger modal -->
-  <button id="addCityBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCityModal">
-    Add City
-  </button>
 </div>
 
 

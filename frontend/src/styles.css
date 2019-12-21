@@ -1,24 +1,2 @@
 /* You can add global styles to this file, and also import other style files */
-#addCountryBtn {
-  position: absolute;
-  top: 61px;
-  left: 1000px;
-}
 
-#addCityBtn {
-  position: absolute;
-  top: 61px;
-  left: 1000px;
-}
-
-#addBreweryBtn {
-  position: absolute;
-  top: 61px;
-  left: 1000px;
-}
-
-#addBeerBtn {
-  position: absolute;
-  top: 61px;
-  left: 1070px;
-}
