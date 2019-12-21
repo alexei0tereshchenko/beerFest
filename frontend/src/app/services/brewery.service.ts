@@ -17,5 +17,9 @@ export class BreweryService {
   getBreweriesByCity(idCity: number): Observable<Brewery[]> {
     return this.httpService.get<Brewery[]>('http://localhost:8080/breweries/' + idCity)
   }
+
+  getBrewery(idBrewery: number): Observable<Brewery>{
+    return this.httpService.get<Brewery>('http://localhost:8080/brewery/' + idBrewery);
+  }
 }
   

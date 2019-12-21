@@ -11,6 +11,7 @@ import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import {CitiesComponent} from "./components/cities/cities.component";
 import {BreweriesByCityComponent} from "./components/breweriesByCity/breweriesByCity.component";
+import {BeerComponent} from "./components/beer/beer.component";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {BreweriesByCityComponent} from "./components/breweriesByCity/breweriesBy
     NavigationComponent,
     BreweriesComponent,
     CitiesComponent,
-    BreweriesByCityComponent
+    BreweriesByCityComponent,
+    BeerComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import {BreweriesByCityComponent} from "./components/breweriesByCity/breweriesBy
     NavigationComponent,
     BreweriesComponent,
     CitiesComponent,
-    BreweriesByCityComponent
+    BreweriesByCityComponent,
+    BeerComponent
   ],
   providers: [
   ],

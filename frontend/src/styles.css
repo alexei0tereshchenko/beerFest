@@ -16,3 +16,9 @@
   top: 61px;
   left: 1000px;
 }
+
+#addBeerBtn {
+  position: absolute;
+  top: 61px;
+  left: 1070px;
+}

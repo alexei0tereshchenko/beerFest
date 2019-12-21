@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Beer Name</th>
+      <th scope="col">Beer Style</th>
+      <th scope="col">Acl/Vol</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let beer of beer">
+      <td>{{beer.beerName}}</td>
+      <td>{{beer.beerStyleByIdBeerStyle.beerStyleName}}</td>
+      <td>{{beer.alcVol}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <!-- Button trigger modal -->
+  <button id="addBeerBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBeerModal">
+    Add Beer
+  </button>
+</div>

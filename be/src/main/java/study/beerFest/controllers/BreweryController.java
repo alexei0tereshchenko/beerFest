@@ -32,4 +32,12 @@ public class BreweryController {
         return session.createQuery("select a from BreweryEntity a " +
                 "where city.idCity = " + idCity, BreweryEntity.class).getResultList();
     }
+
+    @Transactional
+    @RequestMapping(value = "/brewery/{idBrewery}", method = RequestMethod.GET)
+    public BreweryEntity getBrewery(@PathVariable(value = "idBrewery") int idBrewery){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        return session.get(BreweryEntity.class, idBrewery);
+    }
 }
