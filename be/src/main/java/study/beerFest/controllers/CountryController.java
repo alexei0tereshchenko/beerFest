@@ -6,7 +6,7 @@ import study.beerFest.dao.CountryEntity;
 import study.beerFest.utils.HibernateSessionFactory;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -15,12 +15,11 @@ public class CountryController {
     @Transactional(value = Transactional.TxType.REQUIRES_NEW)
     @RequestMapping(value = "/getCountries", method = RequestMethod.GET)
     public List<CountryEntity> getCountries() {
-        List<CountryEntity> countryEntities = new ArrayList<>();
+        List<CountryEntity> countryEntities;
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        for (var i = 1; session.get(CountryEntity.class, i) != null; i++) {
-            countryEntities.add(session.get(CountryEntity.class, i));
-        }
+        countryEntities = session.createQuery("select a from CountryEntity a", CountryEntity.class).getResultList();
+        countryEntities.sort(Comparator.comparingInt(CountryEntity::getIdCountry));
         session.close();
         return countryEntities;
     }
@@ -33,5 +32,14 @@ public class CountryController {
         session.flush();
         session.close();
         return country;
+    }
+
+    @RequestMapping(value = "/country/{idCountry}", method = RequestMethod.GET)
+    public CountryEntity getCountry(@PathVariable(value = "idCountry") int idCountry){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        CountryEntity countryEntity = session.get(CountryEntity.class, idCountry);
+        session.close();
+        return countryEntity;
     }
 }

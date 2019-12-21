@@ -1,0 +1,20 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">City Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let city of cities">
+      <td>{{city.idCity}}</td>
+      <td>{{city.cityName}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <!-- Button trigger modal -->
+  <button id="addCityBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCityModal">
+    Add City
+  </button>
+</div>

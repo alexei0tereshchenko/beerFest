@@ -18,4 +18,8 @@ export class CountryService {
     return this.httpService.post<Country>('http://localhost:8080/addNewCountry', country)
   }
 
+  getCountry(idCountry: number): Observable<Country> {
+    return  this.httpService.get<Country>('http://localhost:8080/country/' + idCountry);
+  }
+
 }
