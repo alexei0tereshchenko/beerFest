@@ -38,10 +38,6 @@ export class CountriesComponent implements OnInit, OnDestroy {
       window.location.reload();
     });
   }
-
-  onCountryClick(idCountry: number){
-
-  }
   /*OnButtonClick(): void {
     this.count = this.form.get('countOfNumbers').value;
     this.input = new Input(this.form.get('countOfNumbers').value,

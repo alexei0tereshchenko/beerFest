@@ -1,10 +1,7 @@
 package study.beerFest.controllers;
 
 import org.hibernate.Session;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import study.beerFest.dao.CityEntity;
 import study.beerFest.utils.HibernateSessionFactory;
 
@@ -21,5 +18,15 @@ public class CityController {
         session.beginTransaction();
         return session.createQuery("SELECT a from CityEntity a " +
                 "where countryByIdCountry.idCountry = " + idCountry, CityEntity.class).getResultList();
+    }
+
+    @RequestMapping(value = "/addCity", method = RequestMethod.POST)
+    public CityEntity addCity(@RequestBody CityEntity cityEntity){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.persist(cityEntity);
+        session.flush();
+        session.close();
+        return cityEntity;
     }
 }
