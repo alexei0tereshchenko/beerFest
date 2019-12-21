@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="study.beerFest.dao.GroupEntity" table="Group" schema="beerFest">
+    <class name="study.beerFest.dao.GroupEntity" table="`Group`" schema="beerFest">
         <id name="idGroup">
             <column name="idGroup" sql-type="int(11)"/>
         </id>

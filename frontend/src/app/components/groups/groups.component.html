@@ -1,0 +1,21 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Group Name</th>
+      <th>
+        <button id="addGroupBtn" type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#addGroupModal">
+          Add Group
+        </button>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let group of groups">
+      <td><a href="/group/{{group.idGroup}}">{{group.groupName}}</a></td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

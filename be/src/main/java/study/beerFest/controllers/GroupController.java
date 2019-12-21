@@ -12,11 +12,14 @@ import java.util.List;
 @RestController
 public class GroupController {
 
-    @Transactional
+    @Transactional(value = Transactional.TxType.REQUIRES_NEW)
     @RequestMapping("/getGroups")
     public List<GroupEntity> getGroups() {
+        List<GroupEntity> groupEntities;
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.createQuery("select a from GroupEntity a", GroupEntity.class).getResultList();
+        groupEntities = session.createQuery("select a from GroupEntity a", GroupEntity.class).getResultList();
+        session.close();
+        return groupEntities;
     }
 }
