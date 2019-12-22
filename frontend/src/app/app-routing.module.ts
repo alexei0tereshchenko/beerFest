@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'beerStyles', component: BeerStylesComponent},
   {path: 'groups', component: GroupsComponent},
   {path: 'beerStyle/:id', component: BeerByBeerStyleComponent},
-  {path: 'beers', component: TastersComponent},
+  {path: 'tasters', component: TastersComponent},
   {path: 'group/:id', component: TastersByGroupComponent},
   {path: 'taster/:id', component: MarksByTasterComponent},
   {path: 'beer/:id', component: MarksByBeerComponent},

@@ -1,7 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {CountriesComponent} from './components/countries/countries.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -20,6 +20,8 @@ import {TastersByGroupComponent} from "./components/tastersByGroup/tastersByGrou
 import {MarksByBeerComponent} from "./components/marksByBeer/marksByBeer.component";
 import {MarksByTasterComponent} from "./components/marksByTaster/marksByTaster.component";
 import {RatingComponent} from "./components/rating/rating.component";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatNativeDateModule} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -45,7 +47,12 @@ import {RatingComponent} from "./components/rating/rating.component";
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule
   ],
   exports: [
     CountriesComponent,
@@ -63,8 +70,8 @@ import {RatingComponent} from "./components/rating/rating.component";
     MarksByTasterComponent,
     RatingComponent
   ],
-  providers: [
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
