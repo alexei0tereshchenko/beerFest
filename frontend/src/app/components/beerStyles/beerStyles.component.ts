@@ -22,7 +22,6 @@ export class BeerStylesComponent implements OnInit {
   }
 
   onSubmitAddBeerStyle(): void {
-
     this.beerStyleService.addBeerStyle(new BeerStyle(this.newBeerStyleName)).subscribe(() => {
       this.newBeerStyleName = null;
       window.location.reload();

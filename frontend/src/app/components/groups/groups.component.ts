@@ -10,6 +10,8 @@ export class GroupsComponent implements OnInit {
 
   groups: Group[];
 
+  newGroupName: string;
+
   constructor(private groupService: GroupsService) {
   }
 
@@ -18,5 +20,10 @@ export class GroupsComponent implements OnInit {
       this.groups = groups);
   }
 
-
+  onSubmitAddGroup(): void {
+    this.groupService.addGroup(new Group(this.newGroupName)).subscribe(() => {
+      this.newGroupName = null;
+      window.location.reload();
+    })
+  }
 }
