@@ -12,7 +12,7 @@
     <tbody>
     <tr *ngFor="let beer of beers">
       <td><a href="/beer/{{beer.idBeer}}">{{beer.beerName}}</a></td>
-      <td>{{beer.breweryByIdBrewery.breweryName}}</td>
+      <td><a href="/brewery/{{beer.breweryByIdBrewery.idBrewery}}">{{beer.breweryByIdBrewery.breweryName}}</a></td>
       <td>{{beer.alcVol}}</td>
       <td></td>
     </tr>

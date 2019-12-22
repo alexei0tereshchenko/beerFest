@@ -12,8 +12,8 @@
     <tbody>
     <tr *ngFor="let beer of beers">
       <td><a href="/beer/{{beer.idBeer}}">{{beer.beerName}}</a></td>
-      <td>{{beer.breweryByIdBrewery.breweryName}}</td>
-      <td>{{beer.beerStyleByIdBeerStyle.beerStyleName}}</td>
+      <td><a href="/brewery/{{beer.breweryByIdBrewery.idBrewery}}">{{beer.breweryByIdBrewery.breweryName}}</a></td>
+      <td><a href="/beerStyle/{{beer.beerStyleByIdBeerStyle.idBeerStyle}}">{{beer.beerStyleByIdBeerStyle.beerStyleName}}</a></td>
       <td>{{beer.alcVol}}</td>
       <td>{{beer.avgMark}}</td>
     </tr>

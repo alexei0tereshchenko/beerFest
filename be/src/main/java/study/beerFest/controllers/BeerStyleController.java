@@ -1,10 +1,7 @@
 package study.beerFest.controllers;
 
 import org.hibernate.Session;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import study.beerFest.dao.BeerStyleEntity;
 import study.beerFest.utils.HibernateSessionFactory;
 
@@ -31,6 +28,17 @@ public class BeerStyleController {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         BeerStyleEntity beerStyleEntity = session.get(BeerStyleEntity.class, idBeerStyle);
+        session.close();
+        return beerStyleEntity;
+    }
+
+    @Transactional
+    @RequestMapping(value = "/addBeerStyle", method = RequestMethod.POST)
+    public BeerStyleEntity addBeerStyle(@RequestBody BeerStyleEntity beerStyleEntity){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.persist(beerStyleEntity);
+        session.flush();
         session.close();
         return beerStyleEntity;
     }

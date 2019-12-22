@@ -10,6 +10,8 @@ export class BeerStylesComponent implements OnInit {
 
   beerStyles: BeerStyle[];
 
+  newBeerStyleName: string;
+
   constructor(private beerStyleService: BeerStylesService) {
 
   }
@@ -19,4 +21,11 @@ export class BeerStylesComponent implements OnInit {
       this.beerStyles = beerStyles);
   }
 
+  onSubmitAddBeerStyle(): void {
+
+    this.beerStyleService.addBeerStyle(new BeerStyle(this.newBeerStyleName)).subscribe(() => {
+      this.newBeerStyleName = null;
+      window.location.reload();
+    })
+  }
 }

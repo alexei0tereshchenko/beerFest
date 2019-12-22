@@ -18,4 +18,8 @@ export class GroupsService {
   getGroup(idGroup: number): Observable<Group>{
     return this.httpService.get<Group>('http://localhost:8080/group/' + idGroup)
   }
+
+  addGroup(group: Group): Observable<Group> {
+    return this.httpService.post<Group>('http://localhost:8080/addGroup', group);
+  }
 }

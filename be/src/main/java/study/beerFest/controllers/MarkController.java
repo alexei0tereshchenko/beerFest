@@ -1,9 +1,7 @@
 package study.beerFest.controllers;
 
 import org.hibernate.Session;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import study.beerFest.dao.MarksEntity;
 import study.beerFest.utils.HibernateSessionFactory;
 
@@ -33,5 +31,16 @@ public class MarkController {
                 "beerByIdBeer.idBeer = " + idBeer, MarksEntity.class).getResultList();
         session.close();
         return marksEntities;
+    }
+
+    @Transactional
+    @RequestMapping(value = "/addMark", method = RequestMethod.POST)
+    public MarksEntity addMark(@RequestBody MarksEntity marksEntity){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.persist(marksEntity);
+        session.flush();
+        session.close();
+        return marksEntity;
     }
 }

@@ -1,9 +1,7 @@
 package study.beerFest.controllers;
 
 import org.hibernate.Session;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import study.beerFest.dao.TastersEntity;
 import study.beerFest.utils.HibernateSessionFactory;
 
@@ -42,5 +40,16 @@ public class TasterController {
                 "where groupByIdGroup.idGroup = " + idGroup, TastersEntity.class).getResultList();
         session.close();
         return tastersEntities;
+    }
+
+    @Transactional
+    @RequestMapping(value = "/addTaster", method = RequestMethod.POST)
+    public TastersEntity addTaster(@RequestBody TastersEntity tastersEntity){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.persist(tastersEntity);
+        session.flush();
+        session.close();
+        return tastersEntity;
     }
 }

@@ -21,4 +21,8 @@ export class TastersService {
   getTaster(idTaster: number): Observable<Taster> {
     return this.httpService.get<Taster>('http://localhost:8080/taster/' + idTaster)
   }
+
+  addTaster(taster: Taster): Observable<Taster> {
+    return this.httpService.post<Taster>('http://localhost:8080/addBeer', taster);
+  }
 }

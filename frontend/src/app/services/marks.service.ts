@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Mark} from "../models/mark.model";
+import {Beer} from "../models/beer.model";
 
 @Injectable({
   providedIn: "root"
@@ -16,5 +17,9 @@ export class MarksService {
 
   getMarksByBeer(idBeer: number): Observable<Mark[]> {
     return this.httpService.get<Mark[]>('http://localhost:8080/marksByBeer/' + idBeer);
+  }
+
+  addMark(mark: Mark): Observable<Mark> {
+    return this.httpService.post<Mark>('http://localhost:8080/addMark', mark);
   }
 }

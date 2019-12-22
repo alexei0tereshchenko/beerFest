@@ -5,4 +5,9 @@ export class Brewery {
   breweryName: string;
   city: City;
   address: string;
+  constructor(breweryName: string, city: City, address: string){
+    this.breweryName = breweryName;
+    this.city = city;
+    this.address = address;
+  }
 }

@@ -18,8 +18,12 @@ export class BreweryService {
     return this.httpService.get<Brewery[]>('http://localhost:8080/breweries/' + idCity)
   }
 
-  getBrewery(idBrewery: number): Observable<Brewery>{
+  getBrewery(idBrewery: number): Observable<Brewery> {
     return this.httpService.get<Brewery>('http://localhost:8080/brewery/' + idBrewery);
+  }
+
+  addBrewery(brewery: Brewery): Observable<Brewery> {
+    return this.httpService.post<Brewery>('http://localhost:8080/addBrewery', brewery);
   }
 }
   

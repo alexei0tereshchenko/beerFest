@@ -10,9 +10,16 @@ import {Brewery} from "../../models/brewery.model";
   selector: 'breweriesByCity',
   templateUrl: 'breweriesByCity.component.html'
 })
-export class BreweriesByCityComponent implements OnInit{
+export class BreweriesByCityComponent implements OnInit {
   city: City;
   breweries: Brewery[];
+
+  newBreweryName: string;
+
+  newBreweryAddress: string;
+
+  newBrewery: Brewery;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -30,6 +37,14 @@ export class BreweriesByCityComponent implements OnInit{
       this.breweryService.getBreweriesByCity(city.idCity).subscribe((breweries) => {
         this.breweries = breweries;
       });
+    });
+  }
+
+  onSubmitAddBrewery(): void {
+    this.newBrewery = new Brewery(this.newBreweryName, this.city, this.newBreweryAddress);
+    this.breweryService.addBrewery(this.newBrewery).subscribe(brewery => {
+      this.newBrewery = null;
+      window.location.reload();
     });
   }
 }

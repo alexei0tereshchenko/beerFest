@@ -26,4 +26,8 @@ export class BeerService {
   getRating(): Observable<Beer[]> {
     return this.httpService.get<Beer[]>('http://localhost:8080/rating')
   }
+
+  addBeer(beer: Beer): Observable<Beer> {
+    return this.httpService.post<Beer>('http://localhost:8080/addBeer', beer);
+  }
 }
