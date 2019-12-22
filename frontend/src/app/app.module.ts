@@ -14,6 +14,9 @@ import {BreweriesByCityComponent} from "./components/breweriesByCity/breweriesBy
 import {BeerComponent} from "./components/beer/beer.component";
 import {BeerStylesComponent} from "./components/beerStyles/beerStyles.component";
 import {GroupsComponent} from "./components/groups/groups.component";
+import {BeerByBeerStyleComponent} from "./components/beerByBeerStyle/beerByBeerStyle.component";
+import {TastersComponent} from "./components/tasters/tasters.component";
+import {TastersByGroupComponent} from "./components/tastersByGroup/tastersByGroup.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import {GroupsComponent} from "./components/groups/groups.component";
     BreweriesByCityComponent,
     BeerComponent,
     BeerStylesComponent,
-    GroupsComponent
+    GroupsComponent,
+    BeerByBeerStyleComponent,
+    TastersComponent,
+    TastersByGroupComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,10 @@ import {GroupsComponent} from "./components/groups/groups.component";
     BreweriesByCityComponent,
     BeerComponent,
     BeerStylesComponent,
-    GroupsComponent
+    GroupsComponent,
+    BeerByBeerStyleComponent,
+    TastersComponent,
+    TastersByGroupComponent
   ],
   providers: [
   ],

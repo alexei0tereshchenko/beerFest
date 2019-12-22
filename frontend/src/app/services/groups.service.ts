@@ -14,4 +14,8 @@ export class GroupsService {
   getGroups(): Observable<Group[]> {
     return this.httpService.get<Group[]>('http://localhost:8080/getGroups');
   }
+
+  getGroup(idGroup: number): Observable<Group>{
+    return this.httpService.get<Group>('http://localhost:8080/group/' + idGroup)
+  }
 }

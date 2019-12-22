@@ -32,5 +32,4 @@ export class BreweriesByCityComponent implements OnInit{
       });
     });
   }
-
 }

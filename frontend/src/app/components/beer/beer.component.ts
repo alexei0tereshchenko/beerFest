@@ -14,7 +14,7 @@ export class BeerComponent implements OnInit{
 
   brewery: Brewery;
 
-  beer: Beer[];
+  beers: Beer[];
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +29,7 @@ export class BeerComponent implements OnInit{
       )).subscribe(brewery => {
       this.brewery = brewery;
       this.beerService.getBeer(brewery.idBrewery).subscribe((beer) => {
-        this.beer = beer;
+        this.beers = beer;
       });
     });
   }

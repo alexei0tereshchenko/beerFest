@@ -7,6 +7,9 @@ import {BreweriesByCityComponent} from "./components/breweriesByCity/breweriesBy
 import {BeerComponent} from "./components/beer/beer.component";
 import {BeerStylesComponent} from "./components/beerStyles/beerStyles.component";
 import {GroupsComponent} from "./components/groups/groups.component";
+import {BeerByBeerStyleComponent} from "./components/beerByBeerStyle/beerByBeerStyle.component";
+import {TastersComponent} from "./components/tasters/tasters.component";
+import {TastersByGroupComponent} from "./components/tastersByGroup/tastersByGroup.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/countries', pathMatch: 'full'},
@@ -16,7 +19,10 @@ const routes: Routes = [
   {path: 'city/:id', component: BreweriesByCityComponent},
   {path: 'brewery/:id', component: BeerComponent},
   {path: 'beerStyles', component: BeerStylesComponent},
-  {path: 'groups', component: GroupsComponent}
+  {path: 'groups', component: GroupsComponent},
+  {path: 'beerStyle/:id', component: BeerByBeerStyleComponent},
+  {path: 'tasters', component: TastersComponent},
+  {path: 'group/:id', component: TastersByGroupComponent}
 ];
 
 @NgModule({

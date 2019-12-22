@@ -3,7 +3,7 @@
     <thead>
     <tr>
       <th scope="col">Beer Name</th>
-      <th scope="col">Beer Style</th>
+      <th scope="col">Brewery</th>
       <th scope="col">Acl/Vol</th>
       <th><button id="addBeerBtn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBeerModal">
         Add Beer</button></th>
@@ -12,7 +12,7 @@
     <tbody>
     <tr *ngFor="let beer of beers">
       <td>{{beer.beerName}}</td>
-      <td>{{beer.beerStyleByIdBeerStyle.beerStyleName}}</td>
+      <td>{{beer.breweryByIdBrewery.breweryName}}</td>
       <td>{{beer.alcVol}}</td>
       <td></td>
     </tr>

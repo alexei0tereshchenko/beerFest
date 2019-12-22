@@ -14,4 +14,8 @@ export class BeerStylesService {
   getBeerStyles(): Observable<BeerStyle[]>{
     return this.httpService.get<BeerStyle[]>('http://localhost:8080/beerStyles');
   }
+
+  getBeerStyle(idBeerStyle: number): Observable<BeerStyle>{
+    return this.httpService.get<BeerStyle>('http://localhost:8080/beerStyle/' + idBeerStyle);
+  }
 }

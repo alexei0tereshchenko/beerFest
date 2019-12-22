@@ -8,11 +8,15 @@ import {Beer} from "../models/beer.model";
 })
 export class BeerService {
 
-  constructor(private httrService: HttpClient) {
+  constructor(private httpService: HttpClient) {
   }
 
   getBeer(idBrewery: number): Observable<Beer[]>{
-    return this.httrService.get<Beer[]>('http://localhost:8080/beer/' + idBrewery);
+    return this.httpService.get<Beer[]>('http://localhost:8080/beer/' + idBrewery);
+  }
+
+    getBeerByBeerStyle(idBeerStyle: number): Observable<Beer[]>{
+    return this.httpService.get<Beer[]>('http://localhost:8080/beerByBeerStyle/' + idBeerStyle);
   }
 
 }

@@ -1,6 +1,7 @@
 package study.beerFest.controllers;
 
 import org.hibernate.Session;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import study.beerFest.dao.GroupEntity;
@@ -21,5 +22,13 @@ public class GroupController {
         groupEntities = session.createQuery("select a from GroupEntity a", GroupEntity.class).getResultList();
         session.close();
         return groupEntities;
+    }
+
+    @Transactional
+    @RequestMapping("/group/{idGroup}")
+    public GroupEntity getGroup(@PathVariable("idGroup") int idGroup){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        return session.get(GroupEntity.class, idGroup);
     }
 }

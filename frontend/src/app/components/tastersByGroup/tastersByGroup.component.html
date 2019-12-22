@@ -1,0 +1,29 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Second Name</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Birth Date</th>
+      <th>
+        <button id="addTasterBtn" type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#addTasterModal">
+          Add Taster
+        </button>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let taster of tasters">
+      <td>{{taster.firstName}}</td>
+      <td>{{taster.lastName}}</td>
+      <td>{{taster.fullName}}</td>
+      <td>{{taster.phoneNumber}}</td>
+      <td>{{taster.birthDate}}</td>
+      <td></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
