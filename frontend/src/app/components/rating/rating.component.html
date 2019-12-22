@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Beer Name</th>
+      <th scope="col">Brewery</th>
+      <th scope="col">Beer Style</th>
+      <th scope="col">Acl/Vol</th>
+      <th scope="col">Average Mark</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let beer of beers">
+      <td><a href="/beer/{{beer.idBeer}}">{{beer.beerName}}</a></td>
+      <td>{{beer.breweryByIdBrewery.breweryName}}</td>
+      <td>{{beer.beerStyleByIdBeerStyle.beerStyleName}}</td>
+      <td>{{beer.alcVol}}</td>
+      <td>{{beer.avgMark}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

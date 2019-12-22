@@ -7,4 +7,5 @@ export class Beer{
   alcVol: number;
   breweryByIdBrewery: Brewery;
   beerStyleByIdBeerStyle: BeerStyle;
+  avgMark: number;
 }

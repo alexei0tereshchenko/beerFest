@@ -19,6 +19,7 @@ import {TastersComponent} from "./components/tasters/tasters.component";
 import {TastersByGroupComponent} from "./components/tastersByGroup/tastersByGroup.component";
 import {MarksByBeerComponent} from "./components/marksByBeer/marksByBeer.component";
 import {MarksByTasterComponent} from "./components/marksByTaster/marksByTaster.component";
+import {RatingComponent} from "./components/rating/rating.component";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {MarksByTasterComponent} from "./components/marksByTaster/marksByTaster.c
     TastersComponent,
     TastersByGroupComponent,
     MarksByBeerComponent,
-    MarksByTasterComponent
+    MarksByTasterComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ import {MarksByTasterComponent} from "./components/marksByTaster/marksByTaster.c
     TastersComponent,
     TastersByGroupComponent,
     MarksByBeerComponent,
-    MarksByTasterComponent
+    MarksByTasterComponent,
+    RatingComponent
   ],
   providers: [
   ],

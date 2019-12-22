@@ -12,6 +12,15 @@ public class BeerEntity {
     private BigDecimal alcVol;
     private BreweryEntity breweryByIdBrewery;
     private BeerStyleEntity beerStyleByIdBeerStyle;
+    private BigDecimal avgMark;
+
+    public BigDecimal getAvgMark() {
+        return avgMark;
+    }
+
+    public void setAvgMark(BigDecimal avgMark) {
+        this.avgMark = avgMark;
+    }
 
     @Id
     @Column(name = "idBeer", nullable = false)
