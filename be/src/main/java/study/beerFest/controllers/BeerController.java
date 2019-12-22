@@ -15,12 +15,14 @@ import java.util.List;
 public class BeerController {
 
     @Transactional
-    @RequestMapping(value = "/beer/{idBrewery}", method = RequestMethod.GET)
-    public List<BeerEntity> getBeer(@PathVariable(value = "idBrewery") int idBrewery) {
+    @RequestMapping(value = "/beerByBrewery/{idBrewery}", method = RequestMethod.GET)
+    public List<BeerEntity> getBeerByBrewery(@PathVariable(value = "idBrewery") int idBrewery) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.createQuery("select a from BeerEntity a " +
+        List<BeerEntity> beerEntities = session.createQuery("select a from BeerEntity a " +
                 "where breweryByIdBrewery.idBrewery = " + idBrewery, BeerEntity.class).getResultList();
+        session.close();
+        return beerEntities;
     }
 
     @Transactional
@@ -28,7 +30,19 @@ public class BeerController {
     public List<BeerEntity> getBeerByBeerStyle(@PathVariable(value = "idBeerStyle") int idBeerStyle) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.createQuery("select a from BeerEntity a " +
+        List<BeerEntity> beerEntities = session.createQuery("select a from BeerEntity a " +
                 "where beerStyleByIdBeerStyle.idBeerStyle = " + idBeerStyle, BeerEntity.class).getResultList();
+        session.close();
+        return beerEntities;
+    }
+
+    @Transactional
+    @RequestMapping("/beer/{idBeer}")
+    public BeerEntity getBeer(@PathVariable("idBeer") int idBeer) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        BeerEntity beerEntity = session.get(BeerEntity.class, idBeer);
+        session.close();
+        return beerEntity;
     }
 }

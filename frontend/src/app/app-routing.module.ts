@@ -10,6 +10,8 @@ import {GroupsComponent} from "./components/groups/groups.component";
 import {BeerByBeerStyleComponent} from "./components/beerByBeerStyle/beerByBeerStyle.component";
 import {TastersComponent} from "./components/tasters/tasters.component";
 import {TastersByGroupComponent} from "./components/tastersByGroup/tastersByGroup.component";
+import {MarksByTasterComponent} from "./components/marksByTaster/marksByTaster.component";
+import {MarksByBeerComponent} from "./components/marksByBeer/marksByBeer.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/countries', pathMatch: 'full'},
@@ -22,7 +24,9 @@ const routes: Routes = [
   {path: 'groups', component: GroupsComponent},
   {path: 'beerStyle/:id', component: BeerByBeerStyleComponent},
   {path: 'tasters', component: TastersComponent},
-  {path: 'group/:id', component: TastersByGroupComponent}
+  {path: 'group/:id', component: TastersByGroupComponent},
+  {path: 'taster/:id', component: MarksByTasterComponent},
+  {path: 'beer/:id', component: MarksByBeerComponent}
 ];
 
 @NgModule({
@@ -33,4 +37,5 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ]
 })
-export class AppRoutingModule{}
+export class AppRoutingModule {
+}

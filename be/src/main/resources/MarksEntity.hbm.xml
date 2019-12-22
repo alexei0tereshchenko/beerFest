@@ -14,10 +14,10 @@
         <property name="comment">
             <column name="Comment" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
-        <many-to-one name="tastersByIdTaster" class="study.beerFest.dao.TastersEntity">
+        <many-to-one name="tastersByIdTaster" class="study.beerFest.dao.TastersEntity" lazy="false">
             <column name="idTaster"/>
         </many-to-one>
-        <many-to-one name="beerByIdBeer" class="study.beerFest.dao.BeerEntity">
+        <many-to-one name="beerByIdBeer" class="study.beerFest.dao.BeerEntity" lazy="false">
             <column name="idBeer"/>
         </many-to-one>
     </class>

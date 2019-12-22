@@ -1,9 +1,12 @@
 package study.beerFest.dao;
 
+import org.hibernate.annotations.Proxy;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Proxy(lazy = false)
 @Table(name = "City", schema = "beerFest", catalog = "")
 public class CityEntity {
     private int idCity;

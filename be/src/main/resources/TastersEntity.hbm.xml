@@ -23,7 +23,7 @@
         <property name="birthDate">
             <column name="BirthDate" sql-type="datetime"/>
         </property>
-        <many-to-one name="groupByIdGroup" class="study.beerFest.dao.GroupEntity">
+        <many-to-one name="groupByIdGroup" class="study.beerFest.dao.GroupEntity" lazy="false">
             <column name="idGroup" not-null="true"/>
         </many-to-one>
     </class>

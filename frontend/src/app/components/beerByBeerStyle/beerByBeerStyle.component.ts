@@ -1,9 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {City} from "../../models/city.model";
-import {Brewery} from "../../models/brewery.model";
 import {ActivatedRoute, ParamMap} from "@angular/router";
-import {BreweryService} from "../../services/brewery.service";
-import {CityService} from "../../services/city.service";
 import {switchMap} from "rxjs/operators";
 import {BeerStyle} from "../../models/beerStyle.model";
 import {Beer} from "../../models/beer.model";

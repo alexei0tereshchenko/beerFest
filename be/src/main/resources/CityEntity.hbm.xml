@@ -11,7 +11,7 @@
         <property name="cityName">
             <column name="CityName" sql-type="varchar(45)" length="45"/>
         </property>
-        <many-to-one name="countryByIdCountry" class="study.beerFest.dao.CountryEntity">
+        <many-to-one name="countryByIdCountry" class="study.beerFest.dao.CountryEntity" lazy="false">
             <column name="idCountry"/>
         </many-to-one>
     </class>

@@ -29,6 +29,8 @@ public class GroupController {
     public GroupEntity getGroup(@PathVariable("idGroup") int idGroup){
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.get(GroupEntity.class, idGroup);
+        GroupEntity groupEntity = session.get(GroupEntity.class, idGroup);
+        session.close();
+        return groupEntity;
     }
 }

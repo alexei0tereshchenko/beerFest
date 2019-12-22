@@ -11,12 +11,15 @@ export class BeerService {
   constructor(private httpService: HttpClient) {
   }
 
-  getBeer(idBrewery: number): Observable<Beer[]>{
-    return this.httpService.get<Beer[]>('http://localhost:8080/beer/' + idBrewery);
+  getBeerByBrewery(idBrewery: number): Observable<Beer[]> {
+    return this.httpService.get<Beer[]>('http://localhost:8080/beerByBrewery/' + idBrewery);
   }
 
-    getBeerByBeerStyle(idBeerStyle: number): Observable<Beer[]>{
+  getBeerByBeerStyle(idBeerStyle: number): Observable<Beer[]> {
     return this.httpService.get<Beer[]>('http://localhost:8080/beerByBeerStyle/' + idBeerStyle);
   }
 
+  getBeer(idBeer: number): Observable<Beer> {
+    return this.httpService.get<Beer>('http://localhost:8080/beer/'+ idBeer);
+  }
 }

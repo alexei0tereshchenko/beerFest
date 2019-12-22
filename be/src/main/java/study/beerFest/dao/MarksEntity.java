@@ -1,5 +1,7 @@
 package study.beerFest.dao;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -15,6 +17,7 @@ public class MarksEntity {
 
     @Id
     @Column(name = "Date", nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm a z")
     public Timestamp getDate() {
         return date;
     }

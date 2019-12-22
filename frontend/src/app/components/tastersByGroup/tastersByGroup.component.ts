@@ -1,9 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {BeerStyle} from "../../models/beerStyle.model";
-import {Beer} from "../../models/beer.model";
 import {ActivatedRoute, ParamMap} from "@angular/router";
-import {BeerService} from "../../services/beer.service";
-import {BeerStylesService} from "../../services/beerStyles.service";
 import {switchMap} from "rxjs/operators";
 import {Taster} from "../../models/taster.model";
 import {Group} from "../../models/group.model";

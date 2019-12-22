@@ -27,7 +27,10 @@ public class TasterController {
     public List<TastersEntity> getTasters() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.createQuery("select a from TastersEntity a", TastersEntity.class).getResultList();
+        List<TastersEntity> tastersEntities = session.createQuery("select a from TastersEntity a",
+                TastersEntity.class).getResultList();
+        session.close();
+        return tastersEntities;
     }
 
     @Transactional
@@ -35,7 +38,9 @@ public class TasterController {
     public List<TastersEntity> getTastersByGroup(@PathVariable("idGroup") int idGroup) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.createQuery("select a from TastersEntity a " +
+        List<TastersEntity> tastersEntities = session.createQuery("select a from TastersEntity a " +
                 "where groupByIdGroup.idGroup = " + idGroup, TastersEntity.class).getResultList();
+        session.close();
+        return tastersEntities;
     }
 }

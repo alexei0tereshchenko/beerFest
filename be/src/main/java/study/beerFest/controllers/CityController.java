@@ -13,11 +13,14 @@ public class CityController {
 
     @Transactional
     @RequestMapping(value = "/cities/{idCountry}", method = RequestMethod.GET)
+    @ResponseBody()
     public List<CityEntity> getCitiesByCountryId(@PathVariable(value = "idCountry") int idCountry) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.createQuery("SELECT a from CityEntity a " +
+        List<CityEntity> cityEntityList = session.createQuery("SELECT a from CityEntity a " +
                 "where countryByIdCountry.idCountry = " + idCountry, CityEntity.class).getResultList();
+        session.close();
+        return cityEntityList;
     }
 
     @RequestMapping(value = "/addCity", method = RequestMethod.POST)
@@ -35,6 +38,8 @@ public class CityController {
     public CityEntity getCity(@PathVariable(value = "idCity") int idCity){
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.get(CityEntity.class, idCity);
+        CityEntity cityEntity = session.get(CityEntity.class, idCity);
+        session.close();
+        return cityEntity;
     }
 }

@@ -1,7 +1,9 @@
 package study.beerFest.dao;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -12,7 +14,7 @@ public class TastersEntity {
     private String lastName;
     private String fullName;
     private String phoneNumber;
-    private Timestamp birthDate;
+    private Date birthDate;
     private GroupEntity groupByIdGroup;
 
     @Id
@@ -67,11 +69,12 @@ public class TastersEntity {
 
     @Basic
     @Column(name = "BirthDate", nullable = false)
-    public Timestamp getBirthDate() {
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Timestamp birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 

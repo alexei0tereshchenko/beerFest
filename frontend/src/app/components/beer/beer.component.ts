@@ -28,7 +28,7 @@ export class BeerComponent implements OnInit{
         this.breweryService.getBrewery(+params.get('id'))
       )).subscribe(brewery => {
       this.brewery = brewery;
-      this.beerService.getBeer(brewery.idBrewery).subscribe((beer) => {
+      this.beerService.getBeerByBrewery(brewery.idBrewery).subscribe((beer) => {
         this.beers = beer;
       });
     });

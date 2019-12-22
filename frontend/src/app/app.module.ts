@@ -17,6 +17,8 @@ import {GroupsComponent} from "./components/groups/groups.component";
 import {BeerByBeerStyleComponent} from "./components/beerByBeerStyle/beerByBeerStyle.component";
 import {TastersComponent} from "./components/tasters/tasters.component";
 import {TastersByGroupComponent} from "./components/tastersByGroup/tastersByGroup.component";
+import {MarksByBeerComponent} from "./components/marksByBeer/marksByBeer.component";
+import {MarksByTasterComponent} from "./components/marksByTaster/marksByTaster.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {TastersByGroupComponent} from "./components/tastersByGroup/tastersByGrou
     GroupsComponent,
     BeerByBeerStyleComponent,
     TastersComponent,
-    TastersByGroupComponent
+    TastersByGroupComponent,
+    MarksByBeerComponent,
+    MarksByTasterComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,9 @@ import {TastersByGroupComponent} from "./components/tastersByGroup/tastersByGrou
     GroupsComponent,
     BeerByBeerStyleComponent,
     TastersComponent,
-    TastersByGroupComponent
+    TastersByGroupComponent,
+    MarksByBeerComponent,
+    MarksByTasterComponent
   ],
   providers: [
   ],

@@ -14,10 +14,10 @@
         <property name="alcVol">
             <column name="AlcVol" sql-type="decimal(2,2)" precision="2" scale="2"/>
         </property>
-        <many-to-one name="breweryByIdBrewery" class="study.beerFest.dao.BreweryEntity">
+        <many-to-one name="breweryByIdBrewery" class="study.beerFest.dao.BreweryEntity" lazy="false">
             <column name="idBrewery"/>
         </many-to-one>
-        <many-to-one name="beerStyleByIdBeerStyle" class="study.beerFest.dao.BeerStyleEntity">
+        <many-to-one name="beerStyleByIdBeerStyle" class="study.beerFest.dao.BeerStyleEntity" lazy="false">
             <column name="idBeerStyle"/>
         </many-to-one>
     </class>

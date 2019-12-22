@@ -21,6 +21,7 @@ public class BreweryController {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         breweryEntities = session.createQuery("SELECT a from BreweryEntity a", BreweryEntity.class).getResultList();
+        session.close();
         return breweryEntities;
     }
 
@@ -29,8 +30,10 @@ public class BreweryController {
     public List<BreweryEntity> getBreweriesByIdCity(@PathVariable(value = "idCity") int idCity) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.createQuery("select a from BreweryEntity a " +
+        List<BreweryEntity> breweryEntities = session.createQuery("select a from BreweryEntity a " +
                 "where city.idCity = " + idCity, BreweryEntity.class).getResultList();
+        session.close();
+        return breweryEntities;
     }
 
     @Transactional
@@ -38,6 +41,8 @@ public class BreweryController {
     public BreweryEntity getBrewery(@PathVariable(value = "idBrewery") int idBrewery){
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.get(BreweryEntity.class, idBrewery);
+        BreweryEntity breweryEntity = session.get(BreweryEntity.class, idBrewery);
+        session.close();
+        return breweryEntity;
     }
 }

@@ -30,6 +30,8 @@ public class BeerStyleController {
     public BeerStyleEntity getBeerStyle(@PathVariable(value = "idBeerStyle") int idBeerStyle){
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
-        return session.get(BeerStyleEntity.class, idBeerStyle);
+        BeerStyleEntity beerStyleEntity = session.get(BeerStyleEntity.class, idBeerStyle);
+        session.close();
+        return beerStyleEntity;
     }
 }

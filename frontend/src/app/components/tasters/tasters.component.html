@@ -18,11 +18,11 @@
     </thead>
     <tbody>
     <tr *ngFor="let taster of tasters">
+      <td><a href="/taster/{{taster.idTasters}}">{{taster.fullName}}</a></td>
       <td>{{taster.firstName}}</td>
       <td>{{taster.lastName}}</td>
-      <td>{{taster.fullName}}</td>
       <td>{{taster.phoneNumber}}</td>
-      <td>{{taster.groupByIdGroup.groupName}}</td>
+      <td><a href="/group/{{taster.groupByIdGroup.idGroup}}">{{taster.groupByIdGroup.groupName}}</a></td>
       <td>{{taster.birthDate}}</td>
       <td></td>
     </tr>

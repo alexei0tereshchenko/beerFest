@@ -14,7 +14,8 @@ export class TastersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tasterService.getTasters().subscribe(tasters => this.tasters = tasters);
+    this.tasterService.getTasters().subscribe(tasters =>
+      this.tasters = tasters);
   }
 
 }
