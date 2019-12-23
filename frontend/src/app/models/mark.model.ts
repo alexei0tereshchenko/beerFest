@@ -7,8 +7,7 @@ export class Mark {
   comment: string;
   tastersByIdTaster: Taster;
   beerByIdBeer: Beer;
-  constructor(date: Date, mark: number, comment: string, tasterByIdTaster: Taster, beerByIdBeer: Beer){
-    this.date = date;
+  constructor(mark: number, comment: string, tasterByIdTaster: Taster, beerByIdBeer: Beer){
     this.mark = mark;
     this.comment = comment;
     this.tastersByIdTaster = tasterByIdTaster;

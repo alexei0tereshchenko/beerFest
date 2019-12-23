@@ -23,7 +23,8 @@
       <td>{{taster.lastName}}</td>
       <td>{{taster.phoneNumber}}</td>
       <td>{{taster.birthDate}}</td>
-      <td><a *ngIf="taster.groupByIdGroup != null" href="/group/{{taster.groupByIdGroup.idGroup}}">{{taster.groupByIdGroup.groupName}}</a></td>
+      <td><a *ngIf="taster.groupByIdGroup != null"
+             href="/group/{{taster.groupByIdGroup.idGroup}}">{{taster.groupByIdGroup.groupName}}</a></td>
       <td></td>
     </tr>
     </tbody>

@@ -6,6 +6,7 @@ import study.beerFest.dao.MarksEntity;
 import study.beerFest.utils.HibernateSessionFactory;
 
 import javax.transaction.Transactional;
+import java.sql.Timestamp;
 import java.util.List;
 
 @RestController
@@ -36,6 +37,7 @@ public class MarkController {
     @Transactional
     @RequestMapping(value = "/addMark", method = RequestMethod.POST)
     public MarksEntity addMark(@RequestBody MarksEntity marksEntity){
+        marksEntity.setDate(new Timestamp(System.currentTimeMillis()));
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         session.persist(marksEntity);

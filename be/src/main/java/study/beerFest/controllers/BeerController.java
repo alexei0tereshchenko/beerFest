@@ -64,8 +64,7 @@ public class BeerController {
             if (marksForBeer.size() > 0) {
                 var sum = marksForBeer.stream().mapToInt(mark -> mark).sum();
                 beerEntity.setAvgMark(new BigDecimal((double) sum / marksForBeer.size()));
-            }
-            else beerEntity.setAvgMark(BigDecimal.valueOf(0));
+            } else beerEntity.setAvgMark(BigDecimal.valueOf(0));
         });
         beerEntities.sort(Comparator.comparing(BeerEntity::getAvgMark));
         Collections.reverse(beerEntities);
@@ -74,12 +73,22 @@ public class BeerController {
 
     @Transactional
     @RequestMapping(value = "/addBeer", method = RequestMethod.POST)
-    public BeerEntity addBeer(@RequestBody BeerEntity beerEntity){
+    public BeerEntity addBeer(@RequestBody BeerEntity beerEntity) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         session.persist(beerEntity);
         session.flush();
         session.close();
         return beerEntity;
+    }
+
+    @Transactional
+    @RequestMapping("/getBeers")
+    public List<BeerEntity> getBeers() {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        List<BeerEntity> beerEntities = session.createQuery("select a from BeerEntity a", BeerEntity.class).getResultList();
+        session.close();
+        return beerEntities;
     }
 }
