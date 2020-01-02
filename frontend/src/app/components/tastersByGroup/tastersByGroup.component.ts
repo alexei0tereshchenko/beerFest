@@ -51,4 +51,8 @@ export class TastersByGroupComponent implements OnInit {
       this.newTasterFullName, this.newTasterPhoneNumber, this.newBirthDate, this.group)).subscribe(() =>
       window.location.reload());
   }
+
+  onSubmitEditGroup() {
+    this.groupService.editGroup(this.group).subscribe();
+  }
 }
