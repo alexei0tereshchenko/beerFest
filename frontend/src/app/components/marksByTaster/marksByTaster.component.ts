@@ -7,6 +7,10 @@ import {Mark} from "../../models/mark.model";
 import {MarksService} from "../../services/marks.service";
 import {Beer} from "../../models/beer.model";
 import {BeerService} from "../../services/beer.service";
+import {GroupsService} from "../../services/groups.service";
+import {Group} from "../../models/group.model";
+import {MatDatepickerInputEvent} from "@angular/material";
+import {isNullOrUndefined} from "util";
 
 @Component({
   selector: 'marks-taster',
@@ -25,11 +29,16 @@ export class MarksByTasterComponent implements OnInit {
 
   newMark: number;
 
+  groups: Group[];
+
+  selectedIdGroup = 0;
+
   constructor(
     private route: ActivatedRoute,
     private tasterService: TastersService,
     private marksService: MarksService,
-    private beerService: BeerService
+    private beerService: BeerService,
+    private groupService: GroupsService
   ) {
   }
 
@@ -41,7 +50,18 @@ export class MarksByTasterComponent implements OnInit {
       this.taster = taster;
       this.marksService.getMarksByTaster(taster.idTasters).subscribe((marks) => {
         this.marks = marks;
-        this.beerService.getBeers().subscribe(beers => this.beers = beers);
+        this.beerService.getBeers().subscribe(beers => {
+          this.beers = beers;
+          this.groupService.getGroups().subscribe(groups => {
+            this.groups = groups;
+            groups.push(new Group('none'));
+            if (isNullOrUndefined(taster.groupByIdGroup)) {
+              this.taster.groupByIdGroup = new Group("");
+              this.taster.groupByIdGroup.idGroup = 0;
+            }
+            else this.selectedIdGroup = this.taster.groupByIdGroup.idGroup;
+          })
+        });
       });
     });
   }
@@ -52,4 +72,21 @@ export class MarksByTasterComponent implements OnInit {
         window.location.reload())
     });
   }
+
+  addEventDatPick(event: MatDatepickerInputEvent<Date>) {
+    this.taster.birthDate = event.value;
+  }
+
+  onSubmitEditTaster() {
+    if (this.selectedIdGroup > 0) {
+      this.groupService.getGroup(this.selectedIdGroup).subscribe(group => {
+        this.taster.groupByIdGroup = group;
+        this.tasterService.editTaster(this.taster).subscribe();
+      })
+    } else {
+      this.taster.groupByIdGroup = null;
+      this.tasterService.editTaster(this.taster).subscribe();
+    }
+  }
+
 }

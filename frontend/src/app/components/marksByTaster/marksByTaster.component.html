@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="container">
+    <h2 style="float: left">{{taster.fullName}}</h2>
+    <a class="edit_btn" data-toggle="modal" data-target="#editTasterModal">
+      <span class="glyphicon glyphicon-edit"></span>
+    </a>
+  </div>
   <table class="table table-hover">
     <thead>
     <tr>
@@ -53,6 +59,48 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmitAddMark()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editTasterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog=centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Taster</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="TasterFirstNameInput" class="col-form-label">First Name:</label>
+        <textarea class="form-control" id="TasterFirstNameInput" [(ngModel)]="taster.firstName"></textarea>
+        <label for="TasterLastNameInput" class="col-form-label">Last Name:</label>
+        <textarea class="form-control" id="TasterLastNameInput" [(ngModel)]="taster.lastName"></textarea>
+        <label for="TasterFullNameInput" class="col-form-label">Full Name:</label>
+        <textarea class="form-control" id="TasterFullNameInput" [(ngModel)]="taster.fullName"></textarea>
+        <label for="TasterPhoneNumberInput" class="col-form-label">First Name:</label>
+        <textarea class="form-control" id="TasterPhoneNumberInput" [(ngModel)]="taster.phoneNumber"></textarea>
+        <label for="selectGroup">Group:</label>
+        <select id="selectGroup" class="form-control" [(ngModel)]="selectedIdGroup">
+          <option *ngFor="let group of groups" [value]="group.idGroup">
+            {{group.groupName}}
+          </option>
+        </select>
+        <mat-form-field>
+          <label for="birthDateInput">Birth Date:</label>
+          <input id="birthDateInput" matInput [matDatepicker]="picker" [(ngModel)]="taster.birthDate"
+                 (dateInput)="addEventDatPick($event)" (dateChange)="addEventDatPick($event)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmitEditTaster()">Save</button>
       </div>
     </div>
   </div>
