@@ -54,4 +54,8 @@ export class BeerByBeerStyleComponent implements OnInit {
         window.location.reload())
     });
   }
+
+  onSubmitEditBeerStyle() {
+    this.beerStyleService.editBeerStyle(this.beerStyle).subscribe();
+  }
 }

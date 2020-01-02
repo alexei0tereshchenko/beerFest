@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="container">
+    <h2 style="float: left">{{beerStyle.beerStyleName}}</h2>
+    <a class="edit_btn" data-toggle="modal" data-target="#editBeerStyleModal">
+      <span class="glyphicon glyphicon-edit"></span>
+    </a>
+  </div>
   <table class="table table-hover">
     <thead>
     <tr>
@@ -47,6 +53,29 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmitAddBeer()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editBeerStyleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog=centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Beer Style</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="beerStyleNameInput" class="col-form-label">Beer Style Name:</label>
+        <textarea class="form-control" id="beerStyleNameInput" [(ngModel)]="beerStyle.beerStyleName"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmitEditBeerStyle()">Save</button>
       </div>
     </div>
   </div>

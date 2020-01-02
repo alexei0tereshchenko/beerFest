@@ -7,6 +7,8 @@ import {Beer} from "../../models/beer.model";
 import {BeerService} from "../../services/beer.service";
 import {TastersService} from "../../services/tasters.service";
 import {Taster} from "../../models/taster.model";
+import {BeerStylesService} from "../../services/beerStyles.service";
+import {BeerStyle} from "../../models/beerStyle.model";
 
 @Component({
   selector: 'marks-beer',
@@ -25,11 +27,15 @@ export class MarksByBeerComponent implements OnInit {
 
   newMark: number;
 
+  beerStyles: BeerStyle[];
+
+
   constructor(
     private route: ActivatedRoute,
     private beerService: BeerService,
     private marksService: MarksService,
-    private tasterService: TastersService
+    private tasterService: TastersService,
+    private beerStyleService: BeerStylesService
   ) {
   }
 
@@ -41,7 +47,10 @@ export class MarksByBeerComponent implements OnInit {
       this.beer = beer;
       this.marksService.getMarksByBeer(beer.idBeer).subscribe((marks) => {
         this.marks = marks;
-        this.tasterService.getTasters().subscribe(tasters => this.tasters = tasters);
+        this.tasterService.getTasters().subscribe(tasters => {
+          this.tasters = tasters;
+          this.beerStyleService.getBeerStyles().subscribe(beerStyles => this.beerStyles = beerStyles);
+        });
       });
     });
   }
@@ -51,5 +60,9 @@ export class MarksByBeerComponent implements OnInit {
       this.marksService.addMark(new Mark(this.newMark, this.newComment, taster, this.beer)).subscribe(() =>
         window.location.reload())
     });
+  }
+
+  onSubmitEditBeer(): void {
+    this.beerService.editBeer(this.beer).subscribe();
   }
 }

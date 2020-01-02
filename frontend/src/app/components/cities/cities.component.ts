@@ -13,8 +13,6 @@ import {City} from "../../models/city.model";
 export class CitiesComponent implements OnInit {
   country: Country;
 
-  newCountryName: string;
-
   cities: City[];
 
   newCityName: string;
@@ -49,7 +47,6 @@ export class CitiesComponent implements OnInit {
   }
 
   onSubmitEditCountry() {
-    this.country.countryName = this.newCountryName;
     this.countryService.editCountry(this.country).subscribe();
   }
 }

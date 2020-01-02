@@ -12,6 +12,7 @@ import {Brewery} from "../../models/brewery.model";
 })
 export class BreweriesByCityComponent implements OnInit {
   city: City;
+
   breweries: Brewery[];
 
   newBreweryName: string;
@@ -46,5 +47,9 @@ export class BreweriesByCityComponent implements OnInit {
       this.newBrewery = null;
       window.location.reload();
     });
+  }
+
+  onSubmitEditCity() {
+    this.cityService.editCity(this.city).subscribe();
   }
 }

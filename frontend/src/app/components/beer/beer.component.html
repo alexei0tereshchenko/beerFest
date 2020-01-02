@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="container">
+    <h2 style="float: left">{{brewery.breweryName}}</h2>
+    <a class="edit_btn" data-toggle="modal" data-target="#editBreweryModal">
+      <span class="glyphicon glyphicon-edit"></span>
+    </a>
+  </div>
   <table class="table table-hover">
     <thead>
     <tr>
@@ -37,8 +43,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <label for="breweryNameInput" class="col-form-label">Beer Name:</label>
-        <textarea class="form-control" id="breweryNameInput" [(ngModel)]="newBeerName"></textarea>
+        <label for="beerNameInput" class="col-form-label">Beer Name:</label>
+        <textarea class="form-control" id="beerNameInput" [(ngModel)]="newBeerName"></textarea>
         <label for="selectBeerStyle">Beer style:</label>
         <select id="selectBeerStyle" class="form-control" [(ngModel)]="newBeerStyleId">
           <option>----------</option>
@@ -52,6 +58,31 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmitAddBeer()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editBreweryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog=centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Brewery</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="breweryNameInput" class="col-form-label">Brewery Name:</label>
+        <textarea class="form-control" id="breweryNameInput" [(ngModel)]="brewery.breweryName"></textarea>
+        <label for="breweryAddressInput" class="col-form-label">Brewery Address:</label>
+        <textarea class="form-control" id="breweryAddressInput" [(ngModel)]="brewery.address"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmitEditBrewery()">Save</button>
       </div>
     </div>
   </div>

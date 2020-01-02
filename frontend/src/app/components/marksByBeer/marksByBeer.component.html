@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="container">
+    <h2 style="float: left">{{beer.beerName}}</h2>
+    <a class="edit_btn" data-toggle="modal" data-target="#editBeerModal">
+      <span class="glyphicon glyphicon-edit"></span>
+    </a>
+  </div>
   <table class="table table-hover">
     <thead>
     <tr>
@@ -40,10 +46,10 @@
       <div class="modal-body">
         <label for="selectTaster" class="col-form-label">Taster:</label>
         <select id="selectTaster" class="form-control" [(ngModel)]="newTasterId">
-        <option>----------</option>
-        <option *ngFor="let taster of tasters" [value]="taster.idTasters">
-          {{taster.fullName}}
-        </option>
+          <option>----------</option>
+          <option *ngFor="let taster of tasters" [value]="taster.idTasters">
+            {{taster.fullName}}
+          </option>
         </select>
         <label for="markInput" class="col-form-label">Mark:</label>
         <textarea class="form-control" id="markInput" [(ngModel)]="newMark"></textarea>
@@ -53,6 +59,37 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmitAddMark()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editBeerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog=centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Beer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="BeerNameInput" class="col-form-label">Beer Name:</label>
+        <textarea class="form-control" id="BeerNameInput" [(ngModel)]="beer.beerName"></textarea>
+        <label for="selectBeerStyle">Beer Style:</label>
+        <select id="selectBeerStyle" class="form-control" [(ngModel)]="beer.beerStyleByIdBeerStyle.idBeerStyle">
+          <option *ngFor="let beerStyle of beerStyles" [value]="beerStyle.idBeerStyle">
+            {{beerStyle.beerStyleName}}
+          </option>
+        </select>
+        <label for="alcVolInput" class="col-form-label">Alcohol/Volume:</label>
+        <textarea class="form-control" id="alcVolInput" [(ngModel)]="beer.alcVol"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmitEditBeer()">Save</button>
       </div>
     </div>
   </div>
