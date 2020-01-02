@@ -6,6 +6,7 @@ import study.beerFest.dao.BreweryEntity;
 import study.beerFest.utils.HibernateSessionFactory;
 
 import javax.transaction.Transactional;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -19,6 +20,7 @@ public class BreweryController {
         session.beginTransaction();
         breweryEntities = session.createQuery("SELECT a from BreweryEntity a", BreweryEntity.class).getResultList();
         session.close();
+        breweryEntities.sort(Comparator.comparing(BreweryEntity::getBreweryName));
         return breweryEntities;
     }
 

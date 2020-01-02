@@ -2,11 +2,11 @@ package study.beerFest.controllers;
 
 import org.hibernate.Session;
 import org.springframework.web.bind.annotation.*;
-import study.beerFest.dao.BeerEntity;
 import study.beerFest.dao.TastersEntity;
 import study.beerFest.utils.HibernateSessionFactory;
 
 import javax.transaction.Transactional;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -29,6 +29,7 @@ public class TasterController {
         List<TastersEntity> tastersEntities = session.createQuery("select a from TastersEntity a",
                 TastersEntity.class).getResultList();
         session.close();
+        tastersEntities.sort(Comparator.comparing(TastersEntity::getFullName));
         return tastersEntities;
     }
 

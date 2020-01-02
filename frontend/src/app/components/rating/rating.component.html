@@ -2,15 +2,17 @@
   <table class="table table-hover">
     <thead>
     <tr>
-      <th scope="col">Beer Name</th>
-      <th scope="col">Brewery</th>
-      <th scope="col">Beer Style</th>
-      <th scope="col">Acl/Vol</th>
-      <th scope="col">Average Mark</th>
+      <th scope="col" (click)="sortByBeer()">Beer Name</th>
+      <th scope="col" (click)="sortByBrewery()">Brewery</th>
+      <th scope="col" (click)="sortByBeerStyle()">Beer Style</th>
+      <th scope="col" data-toggle="modal"
+          data-target="#filtAlcVolModal">Acl/Vol</th>
+      <th scope="col" data-toggle="modal"
+          data-target="#filtAvgMarkModal">Average Mark</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let beer of beers">
+    <tr *ngFor="let beer of beersToDisplay">
       <td><a href="/beer/{{beer.idBeer}}">{{beer.beerName}}</a></td>
       <td><a href="/brewery/{{beer.breweryByIdBrewery.idBrewery}}">{{beer.breweryByIdBrewery.breweryName}}</a></td>
       <td><a href="/beerStyle/{{beer.beerStyleByIdBeerStyle.idBeerStyle}}">{{beer.beerStyleByIdBeerStyle.beerStyleName}}</a></td>
@@ -19,4 +21,56 @@
     </tr>
     </tbody>
   </table>
+</div>
+
+
+<!-- Filt By Alc/Vol Modal -->
+<div class="modal fade" id="filtAlcVolModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog=centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Filter by Alc/Vol</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="fromAlcVolInput" class="col-form-label">From:</label>
+        <textarea class="form-control" id="fromAlcVolInput" [(ngModel)]="fromAlcVol"></textarea>
+        <label for="toAlcVolInput" class="col-form-label">To:</label>
+        <textarea class="form-control" id="toAlcVolInput" [(ngModel)]="toAlcVol"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmitFilterAlcVol()">Filter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Filt By Avg Mark Modal -->
+<div class="modal fade" id="filtAvgMarkModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog=centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Filter by average mark</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="fromAvgMarkInput" class="col-form-label">From:</label>
+        <textarea class="form-control" id="fromAvgMarkInput" [(ngModel)]="fromAvgMark"></textarea>
+        <label for="toAvgMarkInput" class="col-form-label">To:</label>
+        <textarea class="form-control" id="toAvgMarkInput" [(ngModel)]="toAvgMark"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onSubmitFilterAvgMark()">Filter</button>
+      </div>
+    </div>
+  </div>
 </div>

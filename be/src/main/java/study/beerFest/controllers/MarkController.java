@@ -7,6 +7,7 @@ import study.beerFest.utils.HibernateSessionFactory;
 
 import javax.transaction.Transactional;
 import java.sql.Timestamp;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -20,6 +21,7 @@ public class MarkController {
         List<MarksEntity> marksEntities = session.createQuery("select a from MarksEntity a " +
                 "where tastersByIdTaster.idTasters = " + idTater, MarksEntity.class).getResultList();
         session.close();
+        marksEntities.sort(Comparator.comparing(MarksEntity::getMark));
         return marksEntities;
     }
 

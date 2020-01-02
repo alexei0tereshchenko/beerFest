@@ -2,7 +2,6 @@ package study.beerFest.controllers;
 
 import org.hibernate.Session;
 import org.springframework.web.bind.annotation.*;
-import study.beerFest.dao.BeerEntity;
 import study.beerFest.dao.CountryEntity;
 import study.beerFest.utils.HibernateSessionFactory;
 
@@ -20,7 +19,7 @@ public class CountryController {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         countryEntities = session.createQuery("select a from CountryEntity a", CountryEntity.class).getResultList();
-        countryEntities.sort(Comparator.comparingInt(CountryEntity::getIdCountry));
+        countryEntities.sort(Comparator.comparing(CountryEntity::getCountryName));
         session.close();
         return countryEntities;
     }
