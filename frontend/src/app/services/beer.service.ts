@@ -20,7 +20,7 @@ export class BeerService {
   }
 
   getBeer(idBeer: number): Observable<Beer> {
-    return this.httpService.get<Beer>('http://localhost:8080/beer/'+ idBeer);
+    return this.httpService.get<Beer>('http://localhost:8080/beer/' + idBeer);
   }
 
   getRating(): Observable<Beer[]> {
@@ -37,5 +37,9 @@ export class BeerService {
 
   editBeer(beer: Beer): Observable<Beer> {
     return this.httpService.post<Beer>('http://localhost:8080/editBeer', beer);
+  }
+
+  deleteBeer(beer: Beer): Observable<Beer> {
+    return this.httpService.post<Beer>('http://localhost:8080/deleteBeer', beer);
   }
 }

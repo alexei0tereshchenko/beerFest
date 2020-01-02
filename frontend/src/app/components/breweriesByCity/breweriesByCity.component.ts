@@ -52,4 +52,8 @@ export class BreweriesByCityComponent implements OnInit {
   onSubmitEditCity() {
     this.cityService.editCity(this.city).subscribe();
   }
+
+  deleteBrewery(brewery: Brewery) {
+    this.breweryService.deleteBrewery(brewery).subscribe(() => window.location.reload());
+  }
 }

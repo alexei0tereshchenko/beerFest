@@ -49,4 +49,8 @@ export class CitiesComponent implements OnInit {
   onSubmitEditCountry() {
     this.countryService.editCountry(this.country).subscribe();
   }
+
+  deleteCity(city: City) {
+    this.cityService.deleteCity(city).subscribe(() => window.location.reload());
+  }
 }

@@ -22,7 +22,9 @@
     <tr *ngFor="let brewery of breweries">
       <td><a href="/brewery/{{brewery.idBrewery}}">{{brewery.breweryName}}</a></td>
       <td>{{brewery.address}}</td>
-      <td></td>
+      <td><a (click)="deleteBrewery(brewery)">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a></td>
     </tr>
     </tbody>
   </table>

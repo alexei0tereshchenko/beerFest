@@ -58,4 +58,8 @@ export class BeerByBeerStyleComponent implements OnInit {
   onSubmitEditBeerStyle() {
     this.beerStyleService.editBeerStyle(this.beerStyle).subscribe();
   }
+
+  deleteBeer(beer: Beer) {
+    this.beerService.deleteBeer(beer).subscribe(() => window.location.reload());
+  }
 }

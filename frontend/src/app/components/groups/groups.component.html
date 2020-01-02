@@ -14,7 +14,9 @@
     <tbody>
     <tr *ngFor="let group of groups">
       <td><a href="/group/{{group.idGroup}}">{{group.groupName}}</a></td>
-      <td></td>
+      <td><a (click)="deleteGroup(group)">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a></td>
     </tr>
     </tbody>
   </table>

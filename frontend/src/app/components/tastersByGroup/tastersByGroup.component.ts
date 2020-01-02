@@ -55,4 +55,8 @@ export class TastersByGroupComponent implements OnInit {
   onSubmitEditGroup() {
     this.groupService.editGroup(this.group).subscribe();
   }
+
+  deleteTaster(taster: Taster) {
+    this.tasterService.deleteTaster(taster).subscribe(() => window.location.reload());
+  }
 }

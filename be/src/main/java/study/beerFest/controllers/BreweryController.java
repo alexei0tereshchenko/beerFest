@@ -35,7 +35,7 @@ public class BreweryController {
 
     @Transactional
     @RequestMapping(value = "/brewery/{idBrewery}", method = RequestMethod.GET)
-    public BreweryEntity getBrewery(@PathVariable(value = "idBrewery") int idBrewery){
+    public BreweryEntity getBrewery(@PathVariable(value = "idBrewery") int idBrewery) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         BreweryEntity breweryEntity = session.get(BreweryEntity.class, idBrewery);
@@ -45,7 +45,7 @@ public class BreweryController {
 
     @Transactional
     @RequestMapping(value = "/addBrewery", method = RequestMethod.POST)
-    public BreweryEntity addBrewery(@RequestBody BreweryEntity breweryEntity){
+    public BreweryEntity addBrewery(@RequestBody BreweryEntity breweryEntity) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         session.persist(breweryEntity);
@@ -55,10 +55,20 @@ public class BreweryController {
     }
 
     @RequestMapping(value = "/editBrewery", method = RequestMethod.POST)
-    public BreweryEntity editBrewery(@RequestBody BreweryEntity breweryEntity){
+    public BreweryEntity editBrewery(@RequestBody BreweryEntity breweryEntity) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(breweryEntity);
+        session.flush();
+        session.close();
+        return breweryEntity;
+    }
+
+    @RequestMapping(value = "/deleteBrewery", method = RequestMethod.POST)
+    public BreweryEntity deleteBrewery(@RequestBody BreweryEntity breweryEntity) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(breweryEntity);
         session.flush();
         session.close();
         return breweryEntity;

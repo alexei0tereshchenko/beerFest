@@ -52,4 +52,14 @@ public class CityController {
         session.close();
         return cityEntity;
     }
+
+    @RequestMapping(value = "/deleteCity", method = RequestMethod.POST)
+    public CityEntity deleteCity(@RequestBody CityEntity cityEntity) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(cityEntity);
+        session.flush();
+        session.close();
+        return cityEntity;
+    }
 }

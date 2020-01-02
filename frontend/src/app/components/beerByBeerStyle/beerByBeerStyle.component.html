@@ -20,7 +20,9 @@
       <td><a href="/beer/{{beer.idBeer}}">{{beer.beerName}}</a></td>
       <td><a href="/brewery/{{beer.breweryByIdBrewery.idBrewery}}">{{beer.breweryByIdBrewery.breweryName}}</a></td>
       <td>{{beer.alcVol}}</td>
-      <td></td>
+      <td><a (click)="deleteBeer(beer)">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a></td>
     </tr>
     </tbody>
   </table>

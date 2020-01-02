@@ -11,6 +11,9 @@
     <td><a href="/brewery/{{brewery.idBrewery}}">{{brewery.breweryName}}</a></td>
     <td><a href="/city/{{brewery.city.idCity}}">{{brewery.city.cityName}}</a></td>
     <td>{{brewery.address}}</td>
+    <td><a (click)="deleteBrewery(brewery)">
+      <span class="glyphicon glyphicon-remove"></span>
+    </a></td>
   </tr>
   </tbody>
 </table>

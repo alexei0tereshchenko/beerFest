@@ -36,4 +36,8 @@ export class CountriesComponent implements OnInit, OnDestroy {
       window.location.reload();
     });
   }
+
+  deleteCountry(country: Country) {
+    this.countryService.deleteCountry(country).subscribe(() => window.location.reload());
+  }
 }

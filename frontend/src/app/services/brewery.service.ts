@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Brewery} from "../models/brewery.model";
+import {Beer} from "../models/beer.model";
 
 @Injectable({
   providedIn: "root"
@@ -26,9 +27,12 @@ export class BreweryService {
     return this.httpService.post<Brewery>('http://localhost:8080/addBrewery', brewery);
   }
 
-
   editBrewery(brewery: Brewery): Observable<Brewery> {
     return this.httpService.post<Brewery>('http://localhost:8080/editBrewery', brewery);
+  }
+
+  deleteBrewery(brewery: Brewery): Observable<Brewery> {
+    return this.httpService.post<Brewery>('http://localhost:8080/deleteBrewery', brewery);
   }
 }
   

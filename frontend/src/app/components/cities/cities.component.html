@@ -19,7 +19,9 @@
     <tbody>
     <tr *ngFor="let city of cities">
       <td><a href="/city/{{city.idCity}}">{{city.cityName}}</a></td>
-      <td></td>
+      <td><a (click)="deleteCity(city)">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a></td>
     </tr>
     </tbody>
   </table>

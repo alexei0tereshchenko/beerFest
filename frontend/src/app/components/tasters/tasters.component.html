@@ -25,7 +25,9 @@
       <td>{{taster.birthDate}}</td>
       <td><a *ngIf="taster.groupByIdGroup != null"
              href="/group/{{taster.groupByIdGroup.idGroup}}">{{taster.groupByIdGroup.groupName}}</a></td>
-      <td></td>
+      <td><a (click)="deleteTaster(taster)">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a></td>
     </tr>
     </tbody>
   </table>

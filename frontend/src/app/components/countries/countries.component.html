@@ -14,7 +14,9 @@
     <tbody>
     <tr *ngFor="let country of countries">
       <td><a href="/country/{{country.idCountry}}">{{country.countryName}}</a></td>
-      <td></td>
+      <td><a (click)="deleteCountry(country)">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a></td>
     </tr>
     </tbody>
   </table>

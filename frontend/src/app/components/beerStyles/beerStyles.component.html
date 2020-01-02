@@ -14,7 +14,9 @@
     <tbody>
     <tr *ngFor="let beerStyle of beerStyles">
       <td><a href="/beerStyle/{{beerStyle.idBeerStyle}}">{{beerStyle.beerStyleName}}</a></td>
-      <td></td>
+      <td><a (click)="deleteBeerStyle(beerStyle)">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a></td>
     </tr>
     </tbody>
   </table>

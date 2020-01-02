@@ -27,4 +27,8 @@ export class BeerStylesService {
   editBeerStyle(beerStyle: BeerStyle): Observable<BeerStyle> {
     return this.httpService.post<BeerStyle>('http://localhost:8080/editBeerStyle', beerStyle);
   }
+
+  deleteBeerStyle(beerStyle: BeerStyle): Observable<BeerStyle> {
+    return this.httpService.post<BeerStyle>('http://localhost:8080/deleteBeerStyle', beerStyle);
+  }
 }

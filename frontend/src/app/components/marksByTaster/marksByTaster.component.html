@@ -26,7 +26,9 @@
       <td>{{mark.date}}</td>
       <td>{{mark.mark}}</td>
       <td>{{mark.comment}}</td>
-      <td></td>
+      <td><a (click)="deleteMark(mark)">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a></td>
     </tr>
     </tbody>
   </table>

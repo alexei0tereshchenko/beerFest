@@ -89,4 +89,7 @@ export class MarksByTasterComponent implements OnInit {
     }
   }
 
+  deleteMark(mark: Mark) {
+    this.marksService.deleteMark(mark).subscribe(() => window.location.reload());
+  }
 }

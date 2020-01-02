@@ -52,4 +52,14 @@ public class BeerStyleController {
         session.close();
         return beerStyleEntity;
     }
+
+    @RequestMapping(value = "/deleteBeerStyle", method = RequestMethod.POST)
+    public BeerStyleEntity deleteBeer(@RequestBody BeerStyleEntity beerStyleEntity) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(beerStyleEntity);
+        session.flush();
+        session.close();
+        return beerStyleEntity;
+    }
 }

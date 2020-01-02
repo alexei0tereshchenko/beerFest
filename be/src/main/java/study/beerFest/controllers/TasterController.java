@@ -2,6 +2,7 @@ package study.beerFest.controllers;
 
 import org.hibernate.Session;
 import org.springframework.web.bind.annotation.*;
+import study.beerFest.dao.BeerEntity;
 import study.beerFest.dao.TastersEntity;
 import study.beerFest.utils.HibernateSessionFactory;
 
@@ -58,6 +59,16 @@ public class TasterController {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(tastersEntity);
+        session.flush();
+        session.close();
+        return tastersEntity;
+    }
+
+    @RequestMapping(value = "/deleteTaster", method = RequestMethod.POST)
+    public TastersEntity deleteBeer(@RequestBody TastersEntity tastersEntity) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(tastersEntity);
         session.flush();
         session.close();
         return tastersEntity;

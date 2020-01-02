@@ -93,10 +93,20 @@ public class BeerController {
     }
 
     @RequestMapping(value = "/editBeer", method = RequestMethod.POST)
-    public BeerEntity editBeer(@RequestBody BeerEntity beerEntity){
+    public BeerEntity editBeer(@RequestBody BeerEntity beerEntity) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(beerEntity);
+        session.flush();
+        session.close();
+        return beerEntity;
+    }
+
+    @RequestMapping(value = "/deleteBeer", method = RequestMethod.POST)
+    public BeerEntity deleteBeer(@RequestBody BeerEntity beerEntity) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(beerEntity);
         session.flush();
         session.close();
         return beerEntity;

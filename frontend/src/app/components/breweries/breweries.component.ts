@@ -21,4 +21,8 @@ export class BreweriesComponent implements OnInit, OnDestroy{
       this.breweries = breweries;
     })
   }
+
+  deleteBrewery(brewery: Brewery) {
+    this.breweryService.deleteBrewery(brewery).subscribe(() => window.location.reload());
+  }
 }

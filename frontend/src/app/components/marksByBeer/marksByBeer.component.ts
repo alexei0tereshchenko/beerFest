@@ -65,4 +65,8 @@ export class MarksByBeerComponent implements OnInit {
   onSubmitEditBeer(): void {
     this.beerService.editBeer(this.beer).subscribe();
   }
+
+  deleteMark(mark: Mark) {
+    this.marksService.deleteMark(mark).subscribe(() => window.location.reload());
+  }
 }

@@ -25,7 +25,9 @@
         href="/beerStyle/{{beer.beerStyleByIdBeerStyle.idBeerStyle}}">{{beer.beerStyleByIdBeerStyle.beerStyleName}}</a>
       </td>
       <td>{{beer.alcVol}}</td>
-      <td></td>
+      <td><a (click)="deleteBeer(beer)">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a></td>
     </tr>
     </tbody>
   </table>

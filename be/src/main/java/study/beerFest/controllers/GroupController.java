@@ -52,4 +52,14 @@ public class GroupController {
         session.close();
         return groupEntity;
     }
+
+    @RequestMapping(value = "/deleteGroup", method = RequestMethod.POST)
+    public GroupEntity deleteBeer(@RequestBody GroupEntity groupEntity) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(groupEntity);
+        session.flush();
+        session.close();
+        return groupEntity;
+    }
 }

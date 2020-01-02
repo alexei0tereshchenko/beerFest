@@ -55,4 +55,14 @@ public class MarkController {
         session.close();
         return marksEntity;
     }
+
+    @RequestMapping(value = "/deleteMark", method = RequestMethod.POST)
+    public MarksEntity deleteMark(@RequestBody MarksEntity marksEntity) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(marksEntity);
+        session.flush();
+        session.close();
+        return marksEntity;
+    }
 }

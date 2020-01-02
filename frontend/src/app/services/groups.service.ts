@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Group} from "../models/group.model";
+import {Beer} from "../models/beer.model";
 
 @Injectable({
   providedIn: "root"
@@ -25,5 +26,9 @@ export class GroupsService {
 
   editGroup(group: Group): Observable<Group> {
     return this.httpService.post<Group>('http://localhost:8080/editGroup', group);
+  }
+
+  deleteGroup(group: Group): Observable<Group> {
+    return this.httpService.post<Group>('http://localhost:8080/deleteGroup', group);
   }
 }

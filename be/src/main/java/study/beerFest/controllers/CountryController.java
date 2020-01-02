@@ -2,6 +2,7 @@ package study.beerFest.controllers;
 
 import org.hibernate.Session;
 import org.springframework.web.bind.annotation.*;
+import study.beerFest.dao.BeerEntity;
 import study.beerFest.dao.CountryEntity;
 import study.beerFest.utils.HibernateSessionFactory;
 
@@ -48,6 +49,16 @@ public class CountryController {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
         session.update(countryEntity);
+        session.flush();
+        session.close();
+        return countryEntity;
+    }
+
+    @RequestMapping(value = "/deleteCountry", method = RequestMethod.POST)
+    public CountryEntity deleteCountry(@RequestBody CountryEntity countryEntity) {
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(countryEntity);
         session.flush();
         session.close();
         return countryEntity;

@@ -54,4 +54,8 @@ export class TastersComponent implements OnInit {
         window.location.reload());
     }
   }
+
+  deleteTaster(taster: Taster) {
+    this.tasterService.deleteTaster(taster).subscribe(() => window.location.reload());
+  }
 }

@@ -59,10 +59,11 @@ export class BeerComponent implements OnInit {
     })
   }
 
-  /*  onClick(event): void{
-      this.newBeerStyle = event.target.value;
-    }*/
   onSubmitEditBrewery() {
     this.breweryService.editBrewery(this.brewery).subscribe();
+  }
+
+  deleteBeer(beer: Beer) {
+    this.beerService.deleteBeer(beer).subscribe(() => window.location.reload());
   }
 }

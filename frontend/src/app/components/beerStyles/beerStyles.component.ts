@@ -27,4 +27,8 @@ export class BeerStylesComponent implements OnInit {
       window.location.reload();
     })
   }
+
+  deleteBeerStyle(beerStyle: BeerStyle) {
+    this.beerStyleService.deleteBeerStyle(beerStyle).subscribe(() => window.location.reload());
+  }
 }

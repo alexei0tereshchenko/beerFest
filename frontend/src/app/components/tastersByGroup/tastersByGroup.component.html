@@ -28,7 +28,9 @@
       <td>{{taster.lastName}}</td>
       <td>{{taster.phoneNumber}}</td>
       <td>{{taster.birthDate}}</td>
-      <td></td>
+      <td><a (click)="deleteTaster(taster)">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a></td>
     </tr>
     </tbody>
   </table>

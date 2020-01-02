@@ -26,4 +26,8 @@ export class GroupsComponent implements OnInit {
       window.location.reload();
     })
   }
+
+  deleteGroup(group: Group) {
+    this.groupService.deleteGroup(group).subscribe(() => window.location.reload());
+  }
 }
