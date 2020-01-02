@@ -42,4 +42,14 @@ public class BeerStyleController {
         session.close();
         return beerStyleEntity;
     }
+
+    @RequestMapping(value = "/editBeerStyle", method = RequestMethod.POST)
+    public BeerStyleEntity editBeerStyle(@RequestBody BeerStyleEntity beerStyleEntity){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.update(beerStyleEntity);
+        session.flush();
+        session.close();
+        return beerStyleEntity;
+    }
 }

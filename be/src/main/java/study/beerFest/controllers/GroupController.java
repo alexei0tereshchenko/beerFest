@@ -42,4 +42,14 @@ public class GroupController {
         session.close();
         return groupEntity;
     }
+
+    @RequestMapping(value = "/editGroup", method = RequestMethod.POST)
+    public GroupEntity editGroup(@RequestBody GroupEntity groupEntity){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.update(groupEntity);
+        session.flush();
+        session.close();
+        return groupEntity;
+    }
 }

@@ -6,3 +6,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .cdk-overlay-container {
   z-index: 16777271;
 }
+.edit_btn {
+  margin-left: 15px;
+}

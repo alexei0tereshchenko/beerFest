@@ -25,4 +25,8 @@ export class TastersService {
   addTaster(taster: Taster): Observable<Taster> {
     return this.httpService.post<Taster>('http://localhost:8080/addTaster', taster);
   }
+
+  editTaster(taster: Taster): Observable<Taster> {
+    return this.httpService.post<Taster>('http://localhost:8080/editTaster', taster);
+  }
 }

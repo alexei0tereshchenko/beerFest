@@ -53,4 +53,14 @@ public class BreweryController {
         session.close();
         return breweryEntity;
     }
+
+    @RequestMapping(value = "/editBrewery", method = RequestMethod.POST)
+    public BreweryEntity editBrewery(@RequestBody BreweryEntity breweryEntity){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.update(breweryEntity);
+        session.flush();
+        session.close();
+        return breweryEntity;
+    }
 }

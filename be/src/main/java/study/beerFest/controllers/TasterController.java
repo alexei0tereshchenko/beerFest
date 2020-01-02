@@ -52,4 +52,14 @@ public class TasterController {
         session.close();
         return tastersEntity;
     }
+
+    @RequestMapping(value = "/editTaster", method = RequestMethod.POST)
+    public TastersEntity editTaster(@RequestBody TastersEntity tastersEntity){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.update(tastersEntity);
+        session.flush();
+        session.close();
+        return tastersEntity;
+    }
 }

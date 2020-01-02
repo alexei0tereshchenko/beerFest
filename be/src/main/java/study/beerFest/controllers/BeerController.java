@@ -91,4 +91,14 @@ public class BeerController {
         session.close();
         return beerEntities;
     }
+
+    @RequestMapping(value = "/editBeer", method = RequestMethod.POST)
+    public BeerEntity editBeer(@RequestBody BeerEntity beerEntity){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.update(beerEntity);
+        session.flush();
+        session.close();
+        return beerEntity;
+    }
 }

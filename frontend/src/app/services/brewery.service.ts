@@ -25,5 +25,10 @@ export class BreweryService {
   addBrewery(brewery: Brewery): Observable<Brewery> {
     return this.httpService.post<Brewery>('http://localhost:8080/addBrewery', brewery);
   }
+
+
+  editBrewery(brewery: Brewery): Observable<Brewery> {
+    return this.httpService.post<Brewery>('http://localhost:8080/editBrewery', brewery);
+  }
 }
   

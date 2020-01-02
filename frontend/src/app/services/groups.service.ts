@@ -22,4 +22,8 @@ export class GroupsService {
   addGroup(group: Group): Observable<Group> {
     return this.httpService.post<Group>('http://localhost:8080/addGroup', group);
   }
+
+  editGroup(group: Group): Observable<Group> {
+    return this.httpService.post<Group>('http://localhost:8080/editGroup', group);
+  }
 }

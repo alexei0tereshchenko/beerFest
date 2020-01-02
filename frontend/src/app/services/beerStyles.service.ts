@@ -22,4 +22,9 @@ export class BeerStylesService {
   addBeerStyle(beerStyle: BeerStyle): Observable<BeerStyle> {
     return this.httpService.post<BeerStyle>('http://localhost:8080/addBeerStyle', beerStyle);
   }
+
+
+  editBeerStyle(beerStyle: BeerStyle): Observable<BeerStyle> {
+    return this.httpService.post<BeerStyle>('http://localhost:8080/editBeerStyle', beerStyle);
+  }
 }

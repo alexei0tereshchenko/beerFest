@@ -42,4 +42,14 @@ public class CityController {
         session.close();
         return cityEntity;
     }
+
+    @RequestMapping(value = "/editCity", method = RequestMethod.POST)
+    public CityEntity editCity(@RequestBody CityEntity cityEntity){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.update(cityEntity);
+        session.flush();
+        session.close();
+        return cityEntity;
+    }
 }

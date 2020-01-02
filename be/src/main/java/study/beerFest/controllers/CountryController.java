@@ -42,4 +42,14 @@ public class CountryController {
         session.close();
         return countryEntity;
     }
+
+    @RequestMapping(value = "/editCountry", method = RequestMethod.POST)
+    public CountryEntity editCountry(@RequestBody CountryEntity countryEntity){
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.update(countryEntity);
+        session.flush();
+        session.close();
+        return countryEntity;
+    }
 }
