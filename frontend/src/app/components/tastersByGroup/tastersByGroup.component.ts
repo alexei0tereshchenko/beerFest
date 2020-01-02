@@ -5,15 +5,22 @@ import {Taster} from "../../models/taster.model";
 import {Group} from "../../models/group.model";
 import {GroupsService} from "../../services/groups.service";
 import {TastersService} from "../../services/tasters.service";
+import {MatDatepickerInputEvent} from "@angular/material";
 
 @Component({
   selector: "tasters-by-group",
   templateUrl: "tastersByGroup.component.html"
 })
-export class TastersByGroupComponent implements OnInit{
+export class TastersByGroupComponent implements OnInit {
   group: Group;
 
   tasters: Taster[];
+
+  newTasterFirstName: string;
+  newTasterSecondName: string;
+  newTasterFullName: string;
+  newTasterPhoneNumber: string;
+  newBirthDate: Date;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,4 +41,14 @@ export class TastersByGroupComponent implements OnInit{
     });
   }
 
+  addEventDatPick(event: MatDatepickerInputEvent<Date>) {
+    this.newBirthDate = event.value;
+  }
+
+  onSubmitAddTaster(): void {
+    this.tasterService.addTaster(new Taster(this.newTasterFirstName,
+      this.newTasterSecondName,
+      this.newTasterFullName, this.newTasterPhoneNumber, this.newBirthDate, this.group)).subscribe(() =>
+      window.location.reload());
+  }
 }
